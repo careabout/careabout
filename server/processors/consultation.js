@@ -8,7 +8,13 @@ module.exports = {
 }
 
 function process (req, res, next) {
-  req.body = processAll(req.body.consultations)
+  const result = processAll(req.body.consultations)
+  if (!result) {
+    res.send(400, 'Could not process consultations. Possibly bad data...')
+    res.end()
+    return 
+  }
+  req.body = result
   next()
 }
 
@@ -16,7 +22,7 @@ function processAll (consultations) {
   if (consultations) {
     return consultations.map(createDecision)
   }
-  return {}
+  return null
 }
 
 function createDecision (consultation) {

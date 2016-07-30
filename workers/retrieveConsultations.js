@@ -22,7 +22,11 @@ function getConsultations () {
 function postConsultations (consultations) {
   console.log('WORKER POSTING TO DECISIONS API...')
   return request('POST', 'http://localhost:3000/decisions')
+    .send(consultations)
     .then(res => {
+      if (res.statusCode !== 201) {
+        return Promise.reject(new Error('Could not create decisions!'))
+      }
       return Promise.resolve(res)
     }, err => {
       return Promise.reject(err)
@@ -31,7 +35,7 @@ function postConsultations (consultations) {
 
 getConsultations()
   .then((consultations) => {
-    postConsultations(consultations)
+    postConsultations(consultations.body)
   })
   .then((result) => {
     console.log('WORKER SUCCESSFULLY POSTED TO /decisions')
