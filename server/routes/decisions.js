@@ -2,8 +2,8 @@ var express = require('express')
 var path = require('path')
 var router = express.Router()
 
-var mockData = [
-  { id: 1,
+var mockData = {
+  decisions: [{ id: 1,
     title: "consultation 1",
     description: "description 1 --- aaa",
     organisation: [{ id: 1, externalId: 2, name: "org 1" }],
@@ -24,8 +24,11 @@ var mockData = [
     status: "current",
     topic: ["topic2"],
     location: ["Auckland"]
-  },
-]
+  }],
+  topics: ['a', 'b', 'c'],
+  locations: ['d', 'e', 'f']
+}
+
 
 router.get('/', function (req, res) {
   res.send(mockData)

@@ -5,16 +5,18 @@ export const getDecisions = () => {
     request
       .get('/decisions')
       .end((err, res) => {
-        var decisions = JSON.parse(res.text)
-        dispatch(populateDecisions(decisions))
+        var payload = JSON.parse(res.text)
+        dispatch(populateDecisions(payload))
       })
   }
 }
 
-export const populateDecisions = (decisions) => {
+export const populateDecisions = (payload) => {
   return {
     type: POPULATE_DECISIONS,
-    payload: decisions
+    decisions: payload.decisions,
+    topics: payload.topics,
+    locations: payload.locations
   }
 }
 

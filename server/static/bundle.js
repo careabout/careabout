@@ -29511,16 +29511,18 @@
 	var getDecisions = exports.getDecisions = function getDecisions() {
 	  return function (dispatch) {
 	    _superagent2.default.get('/decisions').end(function (err, res) {
-	      var decisions = JSON.parse(res.text);
-	      dispatch(populateDecisions(decisions));
+	      var payload = JSON.parse(res.text);
+	      dispatch(populateDecisions(payload));
 	    });
 	  };
 	};
 	
-	var populateDecisions = exports.populateDecisions = function populateDecisions(decisions) {
+	var populateDecisions = exports.populateDecisions = function populateDecisions(payload) {
 	  return {
 	    type: POPULATE_DECISIONS,
-	    payload: decisions
+	    decisions: payload.decisions,
+	    topics: payload.topics,
+	    locations: payload.locations
 	  };
 	};
 	
@@ -31135,7 +31137,7 @@
 	
 	  switch (action.type) {
 	    case _actions.POPULATE_DECISIONS:
-	      return action.payload;
+	      return action.decisions;
 	    default:
 	      return state;
 	  }
@@ -31217,9 +31219,23 @@
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
-	    'h1',
+	    'div',
 	    null,
-	    'Preferences'
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Preferences'
+	    ),
+	    _react2.default.createElement(
+	      'h2',
+	      null,
+	      'Topics'
+	    ),
+	    _react2.default.createElement(
+	      'h2',
+	      null,
+	      'Locations'
+	    )
 	  );
 	};
 
@@ -31255,9 +31271,13 @@
 	          'div',
 	          { className: 'navbar-header' },
 	          _react2.default.createElement(
-	            'a',
-	            { className: 'navbar-brand' },
-	            'Care About'
+	            _reactRouter.Link,
+	            { to: '/' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'navbar-brand' },
+	              'Care About'
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(
