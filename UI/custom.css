@@ -8,3 +8,14 @@ background: url(community.jpg) no-repeat center center fixed;
 -o-background-size: cover;
 background-size: cover;
 }
+body {
+    background-color: transparent;
+}
+
+#homeDetails {
+    background-color: #fff;
+    min-height: 500px;
+    position: absolute;
+    top: 100vh;
+    width: 82%;
+}
