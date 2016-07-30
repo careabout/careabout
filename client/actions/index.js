@@ -37,7 +37,8 @@ export const populateDecisions = (payload) => {
 export const updatePreference = (preference) => {
   return {
     type: UPDATE_PREFERENCE,
-    preference: preference
+    preference: preference.value,
+    checked: preference.checked
   }
 }
 

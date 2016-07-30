@@ -3,10 +3,11 @@ import React from 'react'
 export default class Preferences extends React.Component {
   constructor(props) {
     super(props)
+    this.updatePreferences = this.updatePreferences.bind(this)
   }
 
   updatePreferences(evt) {
-    console.log(evt)
+    this.props.updatePreference({value: evt.target.value, checked: evt.target.checked})
   }
 
   saveChanges(evt) {
