@@ -29367,6 +29367,10 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
+	var _Nav = __webpack_require__(279);
+	
+	var _Nav2 = _interopRequireDefault(_Nav);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
@@ -29375,22 +29379,7 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Careabout - Change your world'
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/' },
-	        'HOME'
-	      ),
-	      _react2.default.createElement('br', null),
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: 'decisions' },
-	        'DECISIONS'
-	      ),
+	      _react2.default.createElement(_Nav2.default, null),
 	      this.props.children
 	    );
 	  }
@@ -29414,9 +29403,18 @@
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
-	    'h1',
+	    'div',
 	    null,
-	    'Landing'
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Landing'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Laws and plans are being created and changed all the time without the people of the nation even being aware. There should be a way to be notified when something close to your heart is about to be decided. That is where our App comes in. Put in your topics of interest and when an issue around that topic comes up then you will be informed and then there is the opportunity to engage with government to mold the country and area that you live in.'
+	    )
 	  );
 	};
 
@@ -31118,7 +31116,7 @@
 
 /***/ },
 /* 276 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -31126,6 +31124,9 @@
 	  value: true
 	});
 	exports.default = deck;
+	
+	var _actions = __webpack_require__(269);
+	
 	var initialState = [];
 	
 	function deck() {
@@ -31133,7 +31134,7 @@
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case 'POPULATE_DECISIONS':
+	    case _actions.POPULATE_DECISIONS:
 	      return action.payload;
 	    default:
 	      return state;
@@ -31225,6 +31226,74 @@
 	    'h1',
 	    null,
 	    'Prefernces'
+	  );
+	};
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(204);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'navbar navbar-default navbar-fixed-top' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'navbar-header' },
+	          _react2.default.createElement(
+	            'a',
+	            { className: 'navbar-brand' },
+	            'Care About'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'navbar-collapse collapse', id: 'navbar-main' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'nav navbar-nav navbar-right' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: 'decisions' },
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                'Feed'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: 'preferences' },
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                'Preferences'
+	              )
+	            )
+	          )
+	        )
+	      )
+	    )
 	  );
 	};
 
