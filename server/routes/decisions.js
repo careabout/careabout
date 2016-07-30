@@ -5,7 +5,7 @@ var router = express.Router()
 var mockData = [
   { id: 1,
     title: "consultation 1",
-    description: "description 1",
+    description: "description 1 --- aaa",
     organisation: [{ id: 1, externalId: 2, name: "org 1" }],
     url: "http://fakeurl.com",
     start: "01/01/2016",

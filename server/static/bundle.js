@@ -72,19 +72,27 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
-	var _Decisions = __webpack_require__(269);
+	var _Decisions = __webpack_require__(267);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _reducers = __webpack_require__(267);
+	var _Preferences = __webpack_require__(278);
+	
+	var _Preferences2 = _interopRequireDefault(_Preferences);
+	
+	var _reducers = __webpack_require__(275);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
+	
+	var _actions = __webpack_require__(269);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default), window.devToolsExtension ? window.devToolsExtension() : function (f) {
 	  return f;
 	}));
+	
+	store.dispatch((0, _actions.getDecisions)());
 	
 	var history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.hashHistory, store);
 	
@@ -99,7 +107,8 @@
 	        _reactRouter.Route,
 	        { path: '/', component: _App2.default },
 	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Landing2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'decisions', component: _Decisions2.default })
+	        _react2.default.createElement(_reactRouter.Route, { path: 'decisions', component: _Decisions2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'preferences', component: _Preferences2.default })
 	      )
 	    )
 	  ), document.getElementById('app'));
@@ -29358,6 +29367,10 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
+	var _Nav = __webpack_require__(279);
+	
+	var _Nav2 = _interopRequireDefault(_Nav);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
@@ -29366,22 +29379,7 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Careabout - Change your world'
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/' },
-	        'HOME'
-	      ),
-	      _react2.default.createElement('br', null),
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: 'decisions' },
-	        'DECISIONS'
-	      ),
+	      _react2.default.createElement(_Nav2.default, null),
 	      this.props.children
 	    );
 	  }
@@ -29405,9 +29403,18 @@
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
-	    'h1',
+	    'div',
 	    null,
-	    'Landing'
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Landing'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Laws and plans are being created and changed all the time without the people of the nation even being aware. There should be a way to be notified when something close to your heart is about to be decided. That is where our App comes in. Put in your topics of interest and when an issue around that topic comes up then you will be informed and then there is the opportunity to engage with government to mold the country and area that you live in.'
+	    )
 	  );
 	};
 
@@ -29421,62 +29428,13 @@
 	  value: true
 	});
 	
-	var _redux = __webpack_require__(183);
-	
-	var _reactRouterRedux = __webpack_require__(199);
-	
-	var _decisions = __webpack_require__(268);
-	
-	var _decisions2 = _interopRequireDefault(_decisions);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _redux.combineReducers)({
-	  routing: _reactRouterRedux.routerReducer,
-	  decisions: _decisions2.default
-	});
-
-/***/ },
-/* 268 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = deck;
-	var initialState = [];
-	
-	function deck() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case 'POPULATE_DECISIONS':
-	      return state;
-	    default:
-	      return state;
-	  }
-	}
-
-/***/ },
-/* 269 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
 	var _reactRedux = __webpack_require__(176);
 	
-	var _Decisions = __webpack_require__(270);
+	var _Decisions = __webpack_require__(268);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _actions = __webpack_require__(271);
+	var _actions = __webpack_require__(269);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29497,7 +29455,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Decisions2.default);
 
 /***/ },
-/* 270 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29506,9 +29464,15 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _Decision = __webpack_require__(277);
+	
+	var _Decision2 = _interopRequireDefault(_Decision);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29521,16 +29485,14 @@
 	      null,
 	      'Decisions'
 	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'Hello'
-	    )
+	    props.decisions.map(function (decision, i) {
+	      return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
+	    })
 	  );
 	};
 
 /***/ },
-/* 271 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29540,7 +29502,7 @@
 	});
 	exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.populateDecisions = exports.getDecisions = undefined;
 	
-	var _superagent = __webpack_require__(272);
+	var _superagent = __webpack_require__(270);
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
@@ -29566,7 +29528,7 @@
 	var POPULATE_DECISIONS = exports.POPULATE_DECISIONS = 'POPULATE_DECISIONS';
 
 /***/ },
-/* 272 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29588,9 +29550,9 @@
 	  root = undefined;
 	}
 	
-	var Emitter = __webpack_require__(273);
-	var requestBase = __webpack_require__(274);
-	var isObject = __webpack_require__(275);
+	var Emitter = __webpack_require__(271);
+	var requestBase = __webpack_require__(272);
+	var isObject = __webpack_require__(273);
 	
 	/**
 	 * Noop.
@@ -29602,7 +29564,7 @@
 	 * Expose `request`.
 	 */
 	
-	var request = module.exports = __webpack_require__(276).bind(null, Request);
+	var request = module.exports = __webpack_require__(274).bind(null, Request);
 	
 	/**
 	 * Determine XHR.
@@ -30552,7 +30514,7 @@
 	};
 
 /***/ },
-/* 273 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30716,7 +30678,7 @@
 	};
 
 /***/ },
-/* 274 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30724,7 +30686,7 @@
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(275);
+	var isObject = __webpack_require__(273);
 	
 	/**
 	 * Clear previous timeout.
@@ -31067,7 +31029,7 @@
 	};
 
 /***/ },
-/* 275 */
+/* 273 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31089,7 +31051,7 @@
 	module.exports = isObject;
 
 /***/ },
-/* 276 */
+/* 274 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31126,6 +31088,208 @@
 	}
 	
 	module.exports = request;
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _redux = __webpack_require__(183);
+	
+	var _reactRouterRedux = __webpack_require__(199);
+	
+	var _decisions = __webpack_require__(276);
+	
+	var _decisions2 = _interopRequireDefault(_decisions);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _redux.combineReducers)({
+	  routing: _reactRouterRedux.routerReducer,
+	  decisions: _decisions2.default
+	});
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = deck;
+	
+	var _actions = __webpack_require__(269);
+	
+	var initialState = [];
+	
+	function deck() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _actions.POPULATE_DECISIONS:
+	      return action.payload;
+	    default:
+	      return state;
+	  }
+	}
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "container" },
+	    _react2.default.createElement(
+	      "h1",
+	      null,
+	      props.title
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "description: ",
+	      props.description
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "url: ",
+	      props.url
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "start: ",
+	      props.start
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "end: ",
+	      props.end
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "status: ",
+	      props.status
+	    )
+	  );
+	};
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'h1',
+	    null,
+	    'Preferences'
+	  );
+	};
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(204);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'navbar navbar-default navbar-fixed-top' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'navbar-header' },
+	          _react2.default.createElement(
+	            'a',
+	            { className: 'navbar-brand' },
+	            'Care About'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'navbar-collapse collapse', id: 'navbar-main' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'nav navbar-nav navbar-right' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: 'decisions' },
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                'Feed'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: 'preferences' },
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                'Preferences'
+	              )
+	            )
+	          )
+	        )
+	      )
+	    )
+	  );
+	};
 
 /***/ }
 /******/ ]);
