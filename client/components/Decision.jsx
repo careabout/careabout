@@ -2,13 +2,20 @@ import React from 'react'
 
 export default (props) => {
   return (
-    <div className="container">
-      <h1>{props.title}</h1>
-      <p>description: {props.description}</p>
-      <p>url: {props.url}</p>
-      <p>start: {props.start}</p>
-      <p>end: {props.end}</p>
-      <p>status: {props.status}</p>
-    </div>
+
+
+      <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h3 className="modal-title">{props.title}</h3>
+                    </div>
+                    <div className="modal-body">
+                      <p>{props.description}</p>
+                    </div>
+                  </div>
+                </div>
+
+
   )
 }

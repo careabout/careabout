@@ -5,7 +5,7 @@ var router = express.Router()
 var mockData = [
   { id: 1,
     title: "consultation 1",
-    description: "description 1 --- aaa",
+    description: "Far North District Council is consulting on a draft Bylaw for Te Pou Haerenga Tai - Twin Coast Cycle Trail, which runs from the Hokianga Harbour to the Bay of Islands. There is no single regulatory instrument for the management of the use of the Trail, which is",
     organisation: [{ id: 1, externalId: 2, name: "org 1" }],
     url: "http://fakeurl.com",
     start: "01/01/2016",

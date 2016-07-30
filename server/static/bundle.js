@@ -72,19 +72,19 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
-	var _Decisions = __webpack_require__(267);
+	var _Decisions = __webpack_require__(269);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _Preferences = __webpack_require__(278);
+	var _Preferences = __webpack_require__(279);
 	
 	var _Preferences2 = _interopRequireDefault(_Preferences);
 	
-	var _reducers = __webpack_require__(275);
+	var _reducers = __webpack_require__(267);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29367,7 +29367,7 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
-	var _Nav = __webpack_require__(279);
+	var _Nav = __webpack_require__(277);
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
 	
@@ -29428,13 +29428,65 @@
 	  value: true
 	});
 	
+	var _redux = __webpack_require__(183);
+
+	var _reactRouterRedux = __webpack_require__(199);
+
+	var _decisions = __webpack_require__(268);
+
+	var _decisions2 = _interopRequireDefault(_decisions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = (0, _redux.combineReducers)({
+	  routing: _reactRouterRedux.routerReducer,
+	  decisions: _decisions2.default
+	});
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = deck;
+
+	var _actions = __webpack_require__(271);
+
+	var initialState = [];
+
+	function deck() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _actions.POPULATE_DECISIONS:
+	      return action.payload;
+	    default:
+	      return state;
+	  }
+	}
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
 	var _reactRedux = __webpack_require__(176);
 	
-	var _Decisions = __webpack_require__(268);
+	var _Decisions = __webpack_require__(270);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29455,7 +29507,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Decisions2.default);
 
 /***/ },
-/* 268 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29470,7 +29522,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Decision = __webpack_require__(277);
+	var _Decision = __webpack_require__(278);
 	
 	var _Decision2 = _interopRequireDefault(_Decision);
 	
@@ -29479,20 +29531,28 @@
 	exports.default = function (props) {
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { className: 'col-lg-12' },
 	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Decisions'
-	    ),
-	    props.decisions.map(function (decision, i) {
-	      return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
-	    })
+	      'div',
+	      { className: 'bs-component' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'model' },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Decisions'
+	        ),
+	        props.decisions.map(function (decision, i) {
+	          return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
+	        })
+	      )
+	    )
 	  );
 	};
 
 /***/ },
-/* 269 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29502,7 +29562,7 @@
 	});
 	exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.populateDecisions = exports.getDecisions = undefined;
 	
-	var _superagent = __webpack_require__(270);
+	var _superagent = __webpack_require__(272);
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
@@ -29528,7 +29588,7 @@
 	var POPULATE_DECISIONS = exports.POPULATE_DECISIONS = 'POPULATE_DECISIONS';
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29550,9 +29610,9 @@
 	  root = undefined;
 	}
 	
-	var Emitter = __webpack_require__(271);
-	var requestBase = __webpack_require__(272);
-	var isObject = __webpack_require__(273);
+	var Emitter = __webpack_require__(273);
+	var requestBase = __webpack_require__(274);
+	var isObject = __webpack_require__(275);
 	
 	/**
 	 * Noop.
@@ -29564,7 +29624,7 @@
 	 * Expose `request`.
 	 */
 	
-	var request = module.exports = __webpack_require__(274).bind(null, Request);
+	var request = module.exports = __webpack_require__(276).bind(null, Request);
 	
 	/**
 	 * Determine XHR.
@@ -30514,7 +30574,7 @@
 	};
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30678,7 +30738,7 @@
 	};
 
 /***/ },
-/* 272 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30686,7 +30746,7 @@
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(273);
+	var isObject = __webpack_require__(275);
 	
 	/**
 	 * Clear previous timeout.
@@ -31029,7 +31089,7 @@
 	};
 
 /***/ },
-/* 273 */
+/* 275 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31051,7 +31111,7 @@
 	module.exports = isObject;
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31090,141 +31150,7 @@
 	module.exports = request;
 
 /***/ },
-/* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _redux = __webpack_require__(183);
-	
-	var _reactRouterRedux = __webpack_require__(199);
-	
-	var _decisions = __webpack_require__(276);
-	
-	var _decisions2 = _interopRequireDefault(_decisions);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _redux.combineReducers)({
-	  routing: _reactRouterRedux.routerReducer,
-	  decisions: _decisions2.default
-	});
-
-/***/ },
-/* 276 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = deck;
-	
-	var _actions = __webpack_require__(269);
-	
-	var initialState = [];
-	
-	function deck() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case _actions.POPULATE_DECISIONS:
-	      return action.payload;
-	    default:
-	      return state;
-	  }
-	}
-
-/***/ },
 /* 277 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (props) {
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "container" },
-	    _react2.default.createElement(
-	      "h1",
-	      null,
-	      props.title
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "description: ",
-	      props.description
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "url: ",
-	      props.url
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "start: ",
-	      props.start
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "end: ",
-	      props.end
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "status: ",
-	      props.status
-	    )
-	  );
-	};
-
-/***/ },
-/* 278 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (props) {
-	  return _react2.default.createElement(
-	    'h1',
-	    null,
-	    'Preferences'
-	  );
-	};
-
-/***/ },
-/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31288,6 +31214,80 @@
 	        )
 	      )
 	    )
+	  );
+	};
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "modal-dialog" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "modal-content" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "modal-header" },
+	        _react2.default.createElement(
+	          "button",
+	          { type: "button", className: "close", "data-dismiss": "modal", "aria-hidden": "true" },
+	          "×"
+	        ),
+	        _react2.default.createElement(
+	          "h3",
+	          { className: "modal-title" },
+	          props.title
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "modal-body" },
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          props.description
+	        )
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'h1',
+	    null,
+	    'Preferences'
 	  );
 	};
 
