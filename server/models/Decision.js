@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-module.exports = mongoose.model('Decision', decisionSchema)
-
 const decisionSchema = {
   'sourceId': String,
   'title': String,
@@ -14,4 +12,6 @@ const decisionSchema = {
   'topics': [String],
   'locations': [String]
 }
+
+module.exports = mongoose.model('Decision', decisionSchema)
 
