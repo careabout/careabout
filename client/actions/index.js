@@ -1,5 +1,13 @@
 import request from 'superagent'
 
+export const SUBSCRIBE = 'SUBSCRIBE'
+export const GET_DECISIONS = 'GET_DECISIONS'
+export const POPULATE_DECISIONS = 'POPULATE_DECISIONS'
+export const GET_PREFERENCES = 'GET_PREFERENCES'
+export const POPULATE_PREFERENCES = 'POPULATE_PREFERENCES'
+export const UPDATE_PREFERENCE = 'UPDATE_PREFERENCE'
+export const SAVE_PREFERENCES = 'SAVE_PREFERENCES'
+
 export const getDecisions = () => {
   return dispatch => {
     request
@@ -49,9 +57,10 @@ export const savePreferences = () => {
   }
 }
 
-export const GET_DECISIONS = 'GET_DECISIONS'
-export const POPULATE_DECISIONS = 'POPULATE_DECISIONS'
-export const GET_PREFERENCES = 'GET_PREFERENCES'
-export const POPULATE_PREFERENCES = 'POPULATE_PREFERENCES'
-export const UPDATE_PREFERENCE = 'UPDATE_PREFERENCE'
-export const SAVE_PREFERENCES = 'SAVE_PREFERENCES'
+export const subscribe = () => {
+  return dispatch => {
+    var OneSignal = OneSignal || []
+    console.log(OneSignal)
+    console.log('NEED TO IMPLEMENT SUBSCRIBE')
+  }
+}

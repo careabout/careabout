@@ -24,6 +24,9 @@ let store = createStore(
 store.dispatch(getDecisions())
 store.dispatch(getPreferences())
 
+var OneSignal = OneSignal || []
+console.log(OneSignal)
+
 const history = syncHistoryWithStore(hashHistory, store)
 
 document.addEventListener('DOMContentLoaded', () => {

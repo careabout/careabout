@@ -7,7 +7,7 @@ export default (props) => {
       <div className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
-            <Link to="/"><div className="navbar-brand">Care About</div></Link>
+            <Link to="/"><img src="care_about_logo.png" style={{ maxHeight: '35px', width: 'auto'}} /></Link>
           </div>
           <div className="navbar-collapse collapse" id="navbar-main">
             <ul className="nav navbar-nav navbar-right">

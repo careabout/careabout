@@ -4,10 +4,33 @@
   <meta charset="UTF-8">
   <title>Careabout</title>
   <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="bootstrap.css">
   <script src="jquery-1.10.2.min.js" charset="utf-8"></script>
   <script src="bootstrap.min.js" charset="utf-8"></script>
   <link rel="stylesheet" href="custom.min.css">
+  <link rel="stylesheet" href="custom.css">
+  <link rel="stylesheet" href="bootstrap.css" media="screen">
+  <link rel="stylesheet" href="ticker.css">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+  <script>
+    OneSignal = OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "836805c5-f933-40a3-8b0f-ecaa6a7a7b0a",
+      autoRegister: false, /* Set to true to automatically prompt visitors */
+      subdomainName: 'careabout',
+      notifyButton: {
+          enable: false /* Set to false to hide */
+      },
+      promptOptions: {
+        /* These prompt options values configure both the HTTP prompt and the HTTP popup. */
+        /* actionMessage limited to 90 characters */
+        actionMessage: "We'd like to notify you about decisions that you care about!",
+        /* acceptButtonText limited to 15 characters */
+        acceptButtonText: "ALLOW",
+        /* cancelButtonText limited to 15 characters */
+        cancelButtonText: "NO THANKS"
+      }
+    }]);
+  </script>
 </head>
 <body>
   <div id="app"></div>
