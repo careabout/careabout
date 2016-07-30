@@ -80,11 +80,15 @@
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
+	var _actions = __webpack_require__(269);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default), window.devToolsExtension ? window.devToolsExtension() : function (f) {
 	  return f;
 	}));
+	
+	store.dispatch((0, _actions.getDecisions)());
 	
 	var history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.hashHistory, store);
 	
@@ -29461,6 +29465,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Decision = __webpack_require__(277);
+	
+	var _Decision2 = _interopRequireDefault(_Decision);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (props) {
@@ -29472,11 +29480,9 @@
 	      null,
 	      'Decisions'
 	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'Hello'
-	    )
+	    props.decisions.map(function (decision, i) {
+	      return _react2.default.createElement(_Decision2.default, { title: decision.title });
+	    })
 	  );
 	};
 
@@ -31121,11 +31127,44 @@
 	
 	  switch (action.type) {
 	    case 'POPULATE_DECISIONS':
-	      return state;
+	      return action.payload;
 	    default:
 	      return state;
 	  }
 	}
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Decision'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      props.title
+	    )
+	  );
+	};
 
 /***/ }
 /******/ ]);

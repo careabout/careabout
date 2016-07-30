@@ -11,12 +11,15 @@ import Landing from './components/Landing'
 import Decisions from './containers/Decisions'
 
 import reducer from './reducers'
+import { getDecisions } from './actions'
 
 let store = createStore(
   reducer, compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f
   ))
+
+store.dispatch(getDecisions())
 
 const history = syncHistoryWithStore(hashHistory, store)
 
