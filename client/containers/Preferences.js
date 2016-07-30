@@ -6,7 +6,8 @@ const mapStateToProps = (state) => {
   return {
     topics: state.topics,
     locations: state.locations,
-    preferences: state.preferences
+    preferences: state.preferences,
+    isSubscribed: state.notifications.isSubscribed
   }
 }
 

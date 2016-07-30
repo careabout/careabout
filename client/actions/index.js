@@ -7,6 +7,7 @@ export const GET_PREFERENCES = 'GET_PREFERENCES'
 export const POPULATE_PREFERENCES = 'POPULATE_PREFERENCES'
 export const UPDATE_PREFERENCE = 'UPDATE_PREFERENCE'
 export const SAVE_PREFERENCES = 'SAVE_PREFERENCES'
+export const UPDATE_REGISTRATION_STATUS = 'UPDATE_REGISTRATION_STATUS'
 
 export const getDecisions = () => {
   return dispatch => {
@@ -57,9 +58,23 @@ export const savePreferences = () => {
   }
 }
 
+export const checkRegistered = () => {
+  return dispatch => {
+    OneSignal.push(["isPushNotificationsEnabled", function(enabled) {
+      dispatch(updateRegistrationStatus(enabled))
+    }]);
+  }
+}
+
+export const updateRegistrationStatus = (enabled) => {
+  return {
+    type: UPDATE_REGISTRATION_STATUS,
+    enabled: enabled
+  }
+}
+
 export const subscribe = () => {
   return dispatch => {
     OneSignal.push(["registerForPushNotifications", {modalPrompt: true}]);
-    console.log('NEED TO IMPLEMENT SUBSCRIBE')
   }
 }
