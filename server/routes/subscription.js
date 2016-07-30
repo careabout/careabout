@@ -5,7 +5,7 @@ var onesignal = require('../onesignal')
 
 var router = express.Router()
 
-router.post('/:id', function (req, res) {
+router.post('/:id', (req, res) => {
   var id = req.params.id
   var topics = req.body.topics
   var locations = req.body.locations
@@ -18,11 +18,15 @@ router.post('/:id', function (req, res) {
   .catch((e) => res.send(500, e.message))
 })
 
-/*
-router.get('/:id', function (req, res) {
+router.get('/:id', (req, res) => {
   var id = req.params.id
+  db.get(id)
+  .then((doc) => {
+    res.send(doc)
+  })
+  .catch((err) => {
+    res.send(500, err.message)
+  })
 })
-*/
 
 module.exports = router
-
