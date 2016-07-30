@@ -72,23 +72,23 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
-	var _Decisions = __webpack_require__(267);
+	var _Decisions = __webpack_require__(268);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _Preferences = __webpack_require__(282);
+	var _Preferences = __webpack_require__(277);
 	
 	var _Preferences2 = _interopRequireDefault(_Preferences);
 	
-	var _DecisionDetails = __webpack_require__(284);
+	var _DecisionDetails = __webpack_require__(279);
 	
 	var _DecisionDetails2 = _interopRequireDefault(_DecisionDetails);
 	
-	var _reducers = __webpack_require__(275);
+	var _reducers = __webpack_require__(281);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29373,7 +29373,7 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
-	var _Nav = __webpack_require__(279);
+	var _Nav = __webpack_require__(267);
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
 	
@@ -29434,13 +29434,85 @@
 	  value: true
 	});
 	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(204);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'navbar navbar-default navbar-fixed-top' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'navbar-header' },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'navbar-brand' },
+	              'Care About'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'navbar-collapse collapse', id: 'navbar-main' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'nav navbar-nav navbar-right' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: 'decisions' },
+	                'Decisions'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: 'preferences' },
+	                'Preferences'
+	              )
+	            )
+	          )
+	        )
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
 	var _reactRedux = __webpack_require__(176);
 	
-	var _Decisions = __webpack_require__(268);
+	var _Decisions = __webpack_require__(269);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29461,7 +29533,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Decisions2.default);
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29476,7 +29548,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Decision = __webpack_require__(277);
+	var _Decision = __webpack_require__(270);
 	
 	var _Decision2 = _interopRequireDefault(_Decision);
 	
@@ -29508,7 +29580,63 @@
 	};
 
 /***/ },
-/* 269 */
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(204);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'modal-dialog' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'modal-content' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-header' },
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
+	          '×'
+	        ),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: 'decision/' + props.id },
+	          _react2.default.createElement(
+	            'h3',
+	            { className: 'modal-title' },
+	            props.title
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-body' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          props.description
+	        )
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29518,7 +29646,7 @@
 	});
 	exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = undefined;
 	
-	var _superagent = __webpack_require__(270);
+	var _superagent = __webpack_require__(272);
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
@@ -29579,7 +29707,7 @@
 	var SAVE_PREFERENCES = exports.SAVE_PREFERENCES = 'SAVE_PREFERENCES';
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29601,9 +29729,9 @@
 	  root = undefined;
 	}
 	
-	var Emitter = __webpack_require__(271);
-	var requestBase = __webpack_require__(272);
-	var isObject = __webpack_require__(273);
+	var Emitter = __webpack_require__(273);
+	var requestBase = __webpack_require__(274);
+	var isObject = __webpack_require__(275);
 	
 	/**
 	 * Noop.
@@ -29615,7 +29743,7 @@
 	 * Expose `request`.
 	 */
 	
-	var request = module.exports = __webpack_require__(274).bind(null, Request);
+	var request = module.exports = __webpack_require__(276).bind(null, Request);
 	
 	/**
 	 * Determine XHR.
@@ -30565,7 +30693,7 @@
 	};
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30729,7 +30857,7 @@
 	};
 
 /***/ },
-/* 272 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30737,7 +30865,7 @@
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(273);
+	var isObject = __webpack_require__(275);
 	
 	/**
 	 * Clear previous timeout.
@@ -31080,7 +31208,7 @@
 	};
 
 /***/ },
-/* 273 */
+/* 275 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31102,7 +31230,7 @@
 	module.exports = isObject;
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31141,72 +31269,6 @@
 	module.exports = request;
 
 /***/ },
-/* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _redux = __webpack_require__(183);
-	
-	var _reactRouterRedux = __webpack_require__(199);
-	
-	var _decisions = __webpack_require__(276);
-	
-	var _decisions2 = _interopRequireDefault(_decisions);
-	
-	var _topics = __webpack_require__(280);
-	
-	var _topics2 = _interopRequireDefault(_topics);
-	
-	var _locations = __webpack_require__(281);
-	
-	var _locations2 = _interopRequireDefault(_locations);
-	
-	var _preferences = __webpack_require__(283);
-	
-	var _preferences2 = _interopRequireDefault(_preferences);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _redux.combineReducers)({
-	  routing: _reactRouterRedux.routerReducer,
-	  decisions: _decisions2.default,
-	  topics: _topics2.default,
-	  locations: _locations2.default,
-	  preferences: _preferences2.default
-	});
-
-/***/ },
-/* 276 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _actions = __webpack_require__(269);
-	
-	var initialState = [];
-	
-	exports.default = function () {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case _actions.POPULATE_DECISIONS:
-	      return action.decisions;
-	    default:
-	      return state;
-	  }
-	};
-
-/***/ },
 /* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31216,51 +31278,36 @@
 	  value: true
 	});
 	
-	var _react = __webpack_require__(1);
+	var _reactRedux = __webpack_require__(176);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var _Preferences = __webpack_require__(278);
 	
-	var _reactRouter = __webpack_require__(204);
+	var _Preferences2 = _interopRequireDefault(_Preferences);
+	
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'modal-dialog' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'modal-content' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'modal-header' },
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
-	          '×'
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'decision/' + props.id },
-	          _react2.default.createElement(
-	            'h3',
-	            { className: 'modal-title' },
-	            props.title
-	          )
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'modal-body' },
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          props.description
-	        )
-	      )
-	    )
-	  );
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    topics: state.topics,
+	    locations: state.locations,
+	    preferences: state.preferences
+	  };
 	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    updatePreference: function updatePreference(preference) {
+	      dispatch((0, _actions.updatePreference)(preference));
+	    },
+	    savePreferences: function savePreferences() {
+	      dispatch((0, _actions.savePreferences)());
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Preferences2.default);
 
 /***/ },
 /* 278 */
@@ -31401,67 +31448,25 @@
 	  value: true
 	});
 	
-	var _react = __webpack_require__(1);
+	var _reactRedux = __webpack_require__(176);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var _DecisionDetails = __webpack_require__(280);
 	
-	var _reactRouter = __webpack_require__(204);
+	var _DecisionDetails2 = _interopRequireDefault(_DecisionDetails);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (props) {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'navbar navbar-default navbar-fixed-top' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'navbar-header' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'navbar-brand' },
-	              'Care About'
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'navbar-collapse collapse', id: 'navbar-main' },
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'nav navbar-nav navbar-right' },
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: 'decisions' },
-	                'Decisions'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: 'preferences' },
-	                'Preferences'
-	              )
-	            )
-	          )
-	        )
-	      )
-	    )
-	  );
+	var mapStateToProps = function mapStateToProps(state, ownProps) {
+	  var decision = state.decisions.filter(function (decision) {
+	    return Number(ownProps.params.id) === decision.id;
+	  })[0];
+	  console.log(decision);
+	  return {
+	    decision: decision
+	  };
 	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_DecisionDetails2.default);
 
 /***/ },
 /* 280 */
@@ -31473,7 +31478,156 @@
 	  value: true
 	});
 	
-	var _actions = __webpack_require__(269);
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  if (props.decision) {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'Decision Details'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        props.decision.title
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        props.decision.description
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        props.decision.organisation
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        props.decision.url
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        props.decision.end
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        null,
+	        props.decision.topic.map(function (t, i) {
+	          return _react2.default.createElement(
+	            'p',
+	            { key: i },
+	            t
+	          );
+	        })
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        null,
+	        props.decision.location.map(function (loc, i) {
+	          return _react2.default.createElement(
+	            'p',
+	            { key: i },
+	            loc
+	          );
+	        })
+	      )
+	    );
+	  } else {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      'Loading...'
+	    );
+	  }
+	};
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _redux = __webpack_require__(183);
+	
+	var _reactRouterRedux = __webpack_require__(199);
+	
+	var _decisions = __webpack_require__(282);
+	
+	var _decisions2 = _interopRequireDefault(_decisions);
+	
+	var _topics = __webpack_require__(283);
+	
+	var _topics2 = _interopRequireDefault(_topics);
+	
+	var _locations = __webpack_require__(284);
+	
+	var _locations2 = _interopRequireDefault(_locations);
+	
+	var _preferences = __webpack_require__(285);
+	
+	var _preferences2 = _interopRequireDefault(_preferences);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _redux.combineReducers)({
+	  routing: _reactRouterRedux.routerReducer,
+	  decisions: _decisions2.default,
+	  topics: _topics2.default,
+	  locations: _locations2.default,
+	  preferences: _preferences2.default
+	});
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _actions = __webpack_require__(271);
+	
+	var initialState = [];
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _actions.POPULATE_DECISIONS:
+	      return action.decisions;
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _actions = __webpack_require__(271);
 	
 	var initialState = [];
 	
@@ -31490,7 +31644,7 @@
 	};
 
 /***/ },
-/* 281 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31499,7 +31653,7 @@
 	  value: true
 	});
 	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	var initialState = [];
 	
@@ -31516,7 +31670,7 @@
 	};
 
 /***/ },
-/* 282 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31525,48 +31679,7 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(176);
-	
-	var _Preferences = __webpack_require__(278);
-	
-	var _Preferences2 = _interopRequireDefault(_Preferences);
-	
-	var _actions = __webpack_require__(269);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    topics: state.topics,
-	    locations: state.locations,
-	    preferences: state.preferences
-	  };
-	};
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    updatePreference: function updatePreference(preference) {
-	      dispatch((0, _actions.updatePreference)(preference));
-	    },
-	    savePreferences: function savePreferences() {
-	      dispatch((0, _actions.savePreferences)());
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Preferences2.default);
-
-/***/ },
-/* 283 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	var initialState = [];
 	
@@ -31589,65 +31702,6 @@
 	    default:
 	      return state;
 	  }
-	};
-
-/***/ },
-/* 284 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(176);
-	
-	var _DecisionDetails = __webpack_require__(285);
-	
-	var _DecisionDetails2 = _interopRequireDefault(_DecisionDetails);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state, ownProps) {
-	  var decision = state.decisions.filter(function (decision) {
-	    return Number(ownProps.params.id) === decision.id;
-	  })[0];
-	  console.log(decision);
-	  return {
-	    decision: decision
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_DecisionDetails2.default);
-
-/***/ },
-/* 285 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (props) {
-	  console.log(props);
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Decision Details'
-	    )
-	  );
 	};
 
 /***/ }
