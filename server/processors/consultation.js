@@ -28,6 +28,7 @@ function processAll (consultations) {
 
 function createDecision (consultation) {
   let decision = addLocations(consultation)
+  decision = writeOrganisation(decision)
   return writeSourceId(decision)
 }
 
