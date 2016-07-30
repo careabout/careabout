@@ -80,6 +80,10 @@
 	
 	var _Preferences2 = _interopRequireDefault(_Preferences);
 	
+	var _DecisionDetails = __webpack_require__(284);
+	
+	var _DecisionDetails2 = _interopRequireDefault(_DecisionDetails);
+	
 	var _reducers = __webpack_require__(275);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
@@ -109,7 +113,8 @@
 	        { path: '/', component: _App2.default },
 	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Landing2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'decisions', component: _Decisions2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'preferences', component: _Preferences2.default })
+	        _react2.default.createElement(_reactRouter.Route, { path: 'preferences', component: _Preferences2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'decision/:id', component: _DecisionDetails2.default })
 	      )
 	    )
 	  ), document.getElementById('app'));
@@ -31236,7 +31241,7 @@
 	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '' },
+	          { to: 'decision/1' },
 	          _react2.default.createElement(
 	            'h3',
 	            { className: 'modal-title' },
@@ -31584,6 +31589,63 @@
 	    default:
 	      return state;
 	  }
+	};
+
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(176);
+	
+	var _DecisionDetails = __webpack_require__(285);
+	
+	var _DecisionDetails2 = _interopRequireDefault(_DecisionDetails);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state, ownProps) {
+	  console.log(ownProps.params.id);
+	  return {
+	    topics: state.topics,
+	    locations: state.locations,
+	    preferences: state.preferences
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_DecisionDetails2.default);
+
+/***/ },
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Decision Details'
+	    )
+	  );
 	};
 
 /***/ }
