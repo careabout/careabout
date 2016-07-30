@@ -80,6 +80,10 @@
 	
 	var _Preferences2 = _interopRequireDefault(_Preferences);
 	
+	var _DecisionDetails = __webpack_require__(284);
+	
+	var _DecisionDetails2 = _interopRequireDefault(_DecisionDetails);
+	
 	var _reducers = __webpack_require__(275);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
@@ -109,7 +113,8 @@
 	        { path: '/', component: _App2.default },
 	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Landing2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'decisions', component: _Decisions2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'preferences', component: _Preferences2.default })
+	        _react2.default.createElement(_reactRouter.Route, { path: 'preferences', component: _Preferences2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'decision/:id', component: _DecisionDetails2.default })
 	      )
 	    )
 	  ), document.getElementById('app'));
@@ -29475,20 +29480,30 @@
 	
 	var _Decision2 = _interopRequireDefault(_Decision);
 	
+	var _reactRouter = __webpack_require__(204);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { className: 'col-lg-12' },
 	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Decisions'
-	    ),
-	    props.decisions.map(function (decision, i) {
-	      return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
-	    })
+	      'div',
+	      { className: 'bs-component' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'model' },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Decisions'
+	        ),
+	        props.decisions.map(function (decision, i) {
+	          return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
+	        })
+	      )
+	    )
 	  );
 	};
 
@@ -31202,7 +31217,7 @@
 /* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -31212,46 +31227,44 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(204);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
-	    "div",
-	    { className: "container" },
+	    'div',
+	    { className: 'modal-dialog' },
 	    _react2.default.createElement(
-	      "h1",
-	      null,
-	      props.title
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "description: ",
-	      props.description
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "url: ",
-	      props.url
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "start: ",
-	      props.start
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "end: ",
-	      props.end
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "status: ",
-	      props.status
+	      'div',
+	      { className: 'modal-content' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-header' },
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
+	          '×'
+	        ),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: 'decision/' + props.id },
+	          _react2.default.createElement(
+	            'h3',
+	            { className: 'modal-title' },
+	            props.title
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-body' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          props.description
+	        )
+	      )
 	    )
 	  );
 	};
@@ -31272,6 +31285,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Preference = __webpack_require__(286);
+	
+	var _Preference2 = _interopRequireDefault(_Preference);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31286,95 +31303,52 @@
 	  function Preferences(props) {
 	    _classCallCheck(this, Preferences);
 	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Preferences).call(this, props));
-	
-	    _this.updatePreferences = _this.updatePreferences.bind(_this);
-	    _this.saveChanges = _this.saveChanges.bind(_this);
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Preferences).call(this, props));
 	  }
 	
 	  _createClass(Preferences, [{
-	    key: 'updatePreferences',
-	    value: function updatePreferences(evt) {
-	      this.props.updatePreference({ value: evt.target.value, checked: evt.target.checked });
-	    }
-	  }, {
-	    key: 'saveChanges',
-	    value: function saveChanges(evt) {
-	      this.props.savePreferences();
-	    }
-	  }, {
-	    key: 'setCheckbox',
-	    value: function setCheckbox(topic) {
-	      var checkBox = false;
-	      this.props.preferences.map(function (preference) {
-	        if (preference === topic) {
-	          checkBox = true;
-	        }
-	      });
-	      return checkBox;
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-	
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'container' },
 	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Preferences'
-	        ),
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Topics'
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          null,
-	          this.props.topics.map(function (topic, i) {
-	            return _react2.default.createElement(
-	              'li',
-	              { key: i },
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                topic
-	              ),
-	              ' ',
-	              _react2.default.createElement('input', { type: 'checkbox', name: topic, value: topic, onChange: _this2.updatePreferences, checked: _this2.setCheckbox(topic) })
-	            );
-	          })
-	        ),
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Locations'
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          null,
-	          this.props.locations.map(function (location, i) {
-	            return _react2.default.createElement(
-	              'li',
-	              { key: i },
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                location
-	              ),
-	              ' ',
-	              _react2.default.createElement('input', { type: 'checkbox', name: location, value: location, onChange: _this2.updatePreferences, checked: _this2.setCheckbox(location) })
-	            );
-	          })
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: this.saveChanges },
-	          'Save Changes'
+	          'div',
+	          { className: 'form-horizontal' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              'Topics'
+	            ),
+	            this.props.topics.map(function (topic, i) {
+	              return _react2.default.createElement(_Preference2.default, { key: i, topic: topic });
+	            })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              'Locations'
+	            ),
+	            this.props.locations.map(function (location, i) {
+	              return _react2.default.createElement(_Preference2.default, { key: i, topic: location });
+	            })
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.props.subscribe },
+	            'Subscribe'
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.props.savePreferences },
+	            'Save Changes'
+	          )
 	        )
 	      );
 	    }
@@ -31544,6 +31518,9 @@
 	    },
 	    savePreferences: function savePreferences() {
 	      dispatch((0, _actions.savePreferences)());
+	    },
+	    subscribe: function subscribe() {
+	      dispatch((0, _actions.subscribe)());
 	    }
 	  };
 	};
@@ -31584,6 +31561,176 @@
 	      return state;
 	  }
 	};
+
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(176);
+	
+	var _DecisionDetails = __webpack_require__(285);
+	
+	var _DecisionDetails2 = _interopRequireDefault(_DecisionDetails);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state, ownProps) {
+	  return {
+	    decision: state.decisions.filter(function (decision) {
+	      return Number(ownProps.params.id) === decision.id;
+	    })[0]
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_DecisionDetails2.default);
+
+/***/ },
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  console.log(props);
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Decision Details'
+	    )
+	  );
+	};
+
+/***/ },
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(176);
+	
+	var _Preference = __webpack_require__(287);
+	
+	var _Preference2 = _interopRequireDefault(_Preference);
+	
+	var _actions = __webpack_require__(269);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    preferences: state.preferences
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    updatePreference: function updatePreference(preference) {
+	      dispatch((0, _actions.updatePreference)(preference));
+	    },
+	    savePreferences: function savePreferences() {
+	      dispatch((0, _actions.savePreferences)());
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Preference2.default);
+
+/***/ },
+/* 287 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Preference = function (_React$Component) {
+	  _inherits(Preference, _React$Component);
+	
+	  function Preference(props) {
+	    _classCallCheck(this, Preference);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Preference).call(this, props));
+	
+	    _this.updatePreferences = _this.updatePreferences.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Preference, [{
+	    key: 'setCheckbox',
+	    value: function setCheckbox(topic) {
+	      var checkBox = false;
+	      this.props.preferences.map(function (preference) {
+	        if (preference === topic) {
+	          checkBox = true;
+	        }
+	      });
+	      return checkBox;
+	    }
+	  }, {
+	    key: 'updatePreferences',
+	    value: function updatePreferences(evt) {
+	      this.props.updatePreference({ value: evt.target.value, checked: evt.target.checked });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var topic = this.props.topic;
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'checkbox' },
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          _react2.default.createElement('input', { type: 'checkbox', name: topic, value: topic, onChange: this.updatePreferences, checked: this.setCheckbox(topic) }),
+	          topic
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Preference;
+	}(_react2.default.Component);
+	
+	exports.default = Preference;
 
 /***/ }
 /******/ ]);

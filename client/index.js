@@ -10,6 +10,7 @@ import App from './components/App'
 import Landing from './components/Landing'
 import Decisions from './containers/Decisions'
 import Preferences from './containers/Preferences'
+import DecisionDetails from './containers/DecisionDetails'
 
 import reducer from './reducers'
 import { getDecisions, getPreferences } from './actions'
@@ -31,8 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
       <Router history={history}>
         <Route path="/" component={App}>
           <IndexRoute component={Landing} />
-          <Route path='decisions' component={Decisions}/>
-          <Route path='preferences' component={Preferences}/>
+          <Route path='decisions' component={Decisions} />
+          <Route path='preferences' component={Preferences} />
+          <Route path='decision/:id' component={DecisionDetails} />
           </Route>
       </Router>
     </Provider>,
