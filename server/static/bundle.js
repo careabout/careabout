@@ -31472,7 +31472,7 @@
 /* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -31487,66 +31487,112 @@
 	exports.default = function (props) {
 	  if (props.decision) {
 	    return _react2.default.createElement(
-	      'div',
+	      "div",
 	      null,
 	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Decision Details'
+	        "div",
+	        { className: "container" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "row" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "col-lg-12" },
+	            _react2.default.createElement(
+	              "div",
+	              { className: "page-header" },
+	              _react2.default.createElement(
+	                "h1",
+	                { id: "typography" },
+	                props.decision.title
+	              ),
+	              _react2.default.createElement(
+	                "div",
+	                { id: "socialIcons" },
+	                _react2.default.createElement(
+	                  "a",
+	                  { href: "#" },
+	                  _react2.default.createElement("img", { src: "facebook.png" })
+	                ),
+	                _react2.default.createElement(
+	                  "a",
+	                  { href: "#" },
+	                  _react2.default.createElement("img", { src: "twitter.png" })
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "p",
+	                null,
+	                props.decision.organisation
+	              ),
+	              _react2.default.createElement(
+	                "p",
+	                null,
+	                props.decision.url
+	              ),
+	              _react2.default.createElement(
+	                "p",
+	                { className: "text-primary" },
+	                props.decision.end
+	              ),
+	              _react2.default.createElement(
+	                "ul",
+	                null,
+	                props.decision.topic.map(function (t, i) {
+	                  return _react2.default.createElement(
+	                    "p",
+	                    { key: i },
+	                    t
+	                  );
+	                })
+	              ),
+	              _react2.default.createElement(
+	                "ul",
+	                null,
+	                props.decision.location.map(function (loc, i) {
+	                  return _react2.default.createElement(
+	                    "p",
+	                    { key: i },
+	                    loc
+	                  );
+	                })
+	              )
+	            )
+	          )
+	        )
 	      ),
 	      _react2.default.createElement(
-	        'p',
-	        null,
-	        props.decision.title
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        props.decision.description
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        props.decision.organisation
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        props.decision.url
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        props.decision.end
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        null,
-	        props.decision.topic.map(function (t, i) {
-	          return _react2.default.createElement(
-	            'p',
-	            { key: i },
-	            t
-	          );
-	        })
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        null,
-	        props.decision.location.map(function (loc, i) {
-	          return _react2.default.createElement(
-	            'p',
-	            { key: i },
-	            loc
-	          );
-	        })
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col-lg-6" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "bs-component" },
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              props.decision.description
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            { className: "bs-component" },
+	            _react2.default.createElement(
+	              "a",
+	              { href: props.decision.url, className: "btn btn-primary btn-lg btn-block" },
+	              "View More Info"
+	            )
+	          )
+	        )
 	      )
 	    );
 	  } else {
 	    return _react2.default.createElement(
-	      'div',
+	      "div",
 	      null,
-	      'Loading...'
+	      "Loading..."
 	    );
 	  }
 	};
