@@ -2,11 +2,19 @@ var express = require('express')
 var path = require('path')
 var router = express.Router()
 var consultation = require('../processors/consultation')
+var decisionStore = require('./decisionStore')
 
 router.post('/', consultation.process)
 
 router.post('/', (req, res) => {
-  res.sendStatus(201)
+  decisionStore.saveBatch(req.body)
+    .then(result => {
+      res.sendStatus(201)
+    })
+    .catch(err => {
+      console.error(err.message)
+      res.sendStatus(500)
+    })
 })
 
 router.get('/', function (req, res) {
