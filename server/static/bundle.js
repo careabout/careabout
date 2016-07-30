@@ -29501,7 +29501,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = undefined;
+	exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = undefined;
 	
 	var _superagent = __webpack_require__(270);
 	
@@ -29521,6 +29521,7 @@
 	var getPreferences = exports.getPreferences = function getPreferences() {
 	  return function (dispatch) {
 	    var preferencesData = ['a', 'd'];
+	    console.log('NEED TO CHANGE GET PREFERENCES TO LOAD FROM API');
 	    dispatch(populatePreferences(preferencesData));
 	  };
 	};
@@ -29544,7 +29545,14 @@
 	var updatePreference = exports.updatePreference = function updatePreference(preference) {
 	  return {
 	    type: UPDATE_PREFERENCE,
-	    preference: preference
+	    preference: preference.value,
+	    checked: preference.checked
+	  };
+	};
+	
+	var savePreferences = exports.savePreferences = function savePreferences() {
+	  return function (dispatch) {
+	    console.log('NEED TO ADD API TO SAVE PREFERENCES');
 	  };
 	};
 	
@@ -31271,18 +31279,22 @@
 	  function Preferences(props) {
 	    _classCallCheck(this, Preferences);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Preferences).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Preferences).call(this, props));
+	
+	    _this.updatePreferences = _this.updatePreferences.bind(_this);
+	    _this.saveChanges = _this.saveChanges.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(Preferences, [{
 	    key: 'updatePreferences',
 	    value: function updatePreferences(evt) {
-	      console.log(evt);
+	      this.props.updatePreference({ value: evt.target.value, checked: evt.target.checked });
 	    }
 	  }, {
 	    key: 'saveChanges',
 	    value: function saveChanges(evt) {
-	      console.log(evt);
+	      this.props.savePreferences();
 	    }
 	  }, {
 	    key: 'setCheckbox',
@@ -31414,20 +31426,20 @@
 	            'ul',
 	            { className: 'nav navbar-nav navbar-right' },
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: 'decisions' },
+	              'li',
+	              null,
 	              _react2.default.createElement(
-	                'li',
-	                null,
-	                'Feed'
+	                _reactRouter.Link,
+	                { to: 'decisions' },
+	                'Decisions'
 	              )
 	            ),
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: 'preferences' },
+	              'li',
+	              null,
 	              _react2.default.createElement(
-	                'li',
-	                null,
+	                _reactRouter.Link,
+	                { to: 'preferences' },
 	                'Preferences'
 	              )
 	            )
@@ -31506,18 +31518,30 @@
 	
 	var _Preferences2 = _interopRequireDefault(_Preferences);
 	
+	var _actions = __webpack_require__(269);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
 	    topics: state.topics,
 	    locations: state.locations,
-	    preferences: state.preferences.current,
-	    temporary: state.preferences.temporary
+	    preferences: state.preferences
 	  };
 	};
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_Preferences2.default);
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    updatePreference: function updatePreference(preference) {
+	      dispatch((0, _actions.updatePreference)(preference));
+	    },
+	    savePreferences: function savePreferences() {
+	      dispatch((0, _actions.savePreferences)());
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Preferences2.default);
 
 /***/ },
 /* 283 */
@@ -31531,7 +31555,7 @@
 	
 	var _actions = __webpack_require__(269);
 	
-	var initialState = { current: [], temporary: [] };
+	var initialState = [];
 	
 	exports.default = function () {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
@@ -31539,7 +31563,16 @@
 	
 	  switch (action.type) {
 	    case _actions.POPULATE_PREFERENCES:
-	      return Object.assign({}, state, { current: action.preferences });
+	      return action.preferences;
+	    case _actions.UPDATE_PREFERENCE:
+	      if (action.checked) {
+	        return state.concat(action.preference);
+	      } else {
+	        return state.filter(function (preference) {
+	          return action.preference !== preference;
+	        });
+	      }
+	      return state;
 	    default:
 	      return state;
 	  }
