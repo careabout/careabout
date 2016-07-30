@@ -29362,11 +29362,7 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Careabout - Change your world'
-	      ),
+	      _react2.default.createElement(Nav, null),
 	      _react2.default.createElement(_Landing2.default, null)
 	    );
 	  }
@@ -29386,13 +29382,24 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(204);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
-	    'h1',
+	    'div',
 	    null,
-	    'Landing'
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Landing'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Laws and plans are being created and changed all the time without the people of the nation even being aware. There should be a way to be notified when something close to your heart is about to be decided. That is where our App comes in. Put in your topics of interest and when an issue around that topic comes up then you will be informed and then there is the opportunity to engage with government to mold the country and area that you live in.'
+	    )
 	  );
 	};
 
