@@ -9,6 +9,7 @@ function getConsultations () {
   console.log('WORKER RETRIEVING FROM CONSULTATIONS API...')
   return request('GET', 'https://www.govt.nz/api/v2/consultation/list')
     .query({
+      limit: 'all',
       status: 'current'
     })
     .then((res) => {
