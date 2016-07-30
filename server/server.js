@@ -9,6 +9,7 @@ var app = express()
 
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'static')))
+
 app.use('/', index)
 
 app.listen(PORT, function () {
