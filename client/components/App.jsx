@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router'
+
 import Landing from './Landing'
 
 export default React.createClass({
@@ -6,7 +8,10 @@ export default React.createClass({
     return (
       <div>
         <h1>Careabout - Change your world</h1>
-        <Landing />
+        <Link to="/">HOME</Link>
+        <br />
+        <Link to="decisions">DECISIONS</Link>
+        {this.props.children}
       </div>
     )
   }

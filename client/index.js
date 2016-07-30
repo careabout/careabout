@@ -8,11 +8,9 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import App from './components/App'
 import Landing from './components/Landing'
+import Decisions from './containers/Decisions'
 
 import reducer from './reducers'
-
-{/*import Decisions from './containers/DecisionsContainer'
-import Preferences from './containers/PreferencesContainer'*/}
 
 let store = createStore(
   reducer, compose(
@@ -28,8 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <Router history={history}>
         <Route path="/" component={App}>
           <IndexRoute component={Landing} />
-          {/* <Route path='Decisions' component={Decisions}/>
-          <Route path='Preferences' component={Preferences}/> */}
+          <Route path='decisions' component={Decisions}/>
           </Route>
       </Router>
     </Provider>,
