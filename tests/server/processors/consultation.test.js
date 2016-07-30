@@ -45,3 +45,11 @@ test('addLocations correctly adds locations', (t) => {
   t.deepEqual(actual, expected)
   t.end()
 })
+
+test('writeSourceId creates a source id', t => {
+  const expected = { sourceId: 1 }
+  const raw = { id: 1 }
+  const actual = consultation.writeSourceId(raw)
+  t.deepEqual(actual, expected)
+  t.end()
+})

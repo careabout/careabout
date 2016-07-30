@@ -2,12 +2,16 @@ module.exports = {
   addLocations: addLocations,
   captureLocation: captureLocation,
   process: process,
-  removeQuery: removeQuery
+  removeQuery: removeQuery,
+  writeSourceId: writeSourceId
 }
 
 function process (req, res, next) {
   req.body = 'PROCESS'
   next()
+}
+
+function createDecision (consultation) {
 }
 
 function removeQuery (rawObject) {
@@ -46,4 +50,11 @@ function skipLocation (topicString, i) {
     return topic
   }
   return null
+}
+
+function writeSourceId (consultation) {
+  const clone = Object.assign({}, consultation)
+  clone.sourceId = consultation.id
+  delete clone.id
+  return clone
 }
