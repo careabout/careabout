@@ -29501,7 +29501,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = undefined;
+	exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = undefined;
 	
 	var _superagent = __webpack_require__(270);
 	
@@ -29521,6 +29521,7 @@
 	var getPreferences = exports.getPreferences = function getPreferences() {
 	  return function (dispatch) {
 	    var preferencesData = ['a', 'd'];
+	    console.log('NEED TO CHANGE GET PREFERENCES TO LOAD FROM API');
 	    dispatch(populatePreferences(preferencesData));
 	  };
 	};
@@ -29546,6 +29547,12 @@
 	    type: UPDATE_PREFERENCE,
 	    preference: preference.value,
 	    checked: preference.checked
+	  };
+	};
+	
+	var savePreferences = exports.savePreferences = function savePreferences() {
+	  return function (dispatch) {
+	    console.log('NEED TO ADD API TO SAVE PREFERENCES');
 	  };
 	};
 	
@@ -31275,6 +31282,7 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Preferences).call(this, props));
 	
 	    _this.updatePreferences = _this.updatePreferences.bind(_this);
+	    _this.saveChanges = _this.saveChanges.bind(_this);
 	    return _this;
 	  }
 	
@@ -31286,7 +31294,7 @@
 	  }, {
 	    key: 'saveChanges',
 	    value: function saveChanges(evt) {
-	      console.log(evt);
+	      this.props.savePreferences();
 	    }
 	  }, {
 	    key: 'setCheckbox',
@@ -31418,20 +31426,20 @@
 	            'ul',
 	            { className: 'nav navbar-nav navbar-right' },
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: 'decisions' },
+	              'li',
+	              null,
 	              _react2.default.createElement(
-	                'li',
-	                null,
-	                'Feed'
+	                _reactRouter.Link,
+	                { to: 'decisions' },
+	                'Decisions'
 	              )
 	            ),
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: 'preferences' },
+	              'li',
+	              null,
 	              _react2.default.createElement(
-	                'li',
-	                null,
+	                _reactRouter.Link,
+	                { to: 'preferences' },
 	                'Preferences'
 	              )
 	            )
@@ -31526,6 +31534,9 @@
 	  return {
 	    updatePreference: function updatePreference(preference) {
 	      dispatch((0, _actions.updatePreference)(preference));
+	    },
+	    savePreferences: function savePreferences() {
+	      dispatch((0, _actions.savePreferences)());
 	    }
 	  };
 	};

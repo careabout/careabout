@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Preferences from '../components/Preferences'
-import { updatePreference } from '../actions'
+import { updatePreference, savePreferences } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updatePreference: (preference) => {
       dispatch(updatePreference(preference))
+    },
+    savePreferences: () => {
+      dispatch(savePreferences())
     }
   }
 }

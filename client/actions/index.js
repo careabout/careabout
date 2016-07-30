@@ -14,6 +14,7 @@ export const getDecisions = () => {
 export const getPreferences = () => {
   return dispatch => {
     var preferencesData = ['a','d']
+    console.log('NEED TO CHANGE GET PREFERENCES TO LOAD FROM API')
     dispatch(populatePreferences(preferencesData))
   }
 }
@@ -39,6 +40,12 @@ export const updatePreference = (preference) => {
     type: UPDATE_PREFERENCE,
     preference: preference.value,
     checked: preference.checked
+  }
+}
+
+export const savePreferences = () => {
+  return dispatch => {
+    console.log('NEED TO ADD API TO SAVE PREFERENCES')
   }
 }
 

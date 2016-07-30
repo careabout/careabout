@@ -4,6 +4,7 @@ export default class Preferences extends React.Component {
   constructor(props) {
     super(props)
     this.updatePreferences = this.updatePreferences.bind(this)
+    this.saveChanges = this.saveChanges.bind(this)
   }
 
   updatePreferences(evt) {
@@ -11,7 +12,7 @@ export default class Preferences extends React.Component {
   }
 
   saveChanges(evt) {
-    console.log(evt)
+    this.props.savePreferences()
   }
 
   setCheckbox(topic) {
