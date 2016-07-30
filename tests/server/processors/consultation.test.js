@@ -9,22 +9,6 @@ test('removeQuery removes query property', (t) => {
   t.end()
 })
 
-test('captureLocation gets location from topic string', (t) => {
-  const expected = 'Far North'
-  const topic = 'Local government - Far North'
-  const actual = consultation.captureLocation(topic)
-  t.equal(actual, expected)
-  t.end()
-})
-
-test('captureLocation does not get location if improper format', (t) => {
-  const expected = null
-  const topic = 'Far North - Local government'
-  const actual = consultation.captureLocation(topic)
-  t.equal(actual, expected)
-  t.end()
-})
-
 test('addLocations adds a locations array', (t) => {
   const expected = { topics: ['Electricity'], locations: [] }
   const raw = { topic: ['Electricity'] }

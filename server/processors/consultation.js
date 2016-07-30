@@ -1,6 +1,5 @@
 module.exports = {
   addLocations: addLocations,
-  captureLocation: captureLocation,
   process: process,
   removeQuery: removeQuery,
   writeSourceId: writeSourceId
@@ -36,22 +35,6 @@ function addLocations (decision) {
     clone.topics.push(topic)
   })
   return clone
-}
-
-function captureLocation (topicString) {
-  const re = /^Local government - ([a-z ]+)$/i
-  const match = re.exec(topicString)
-  if (match) {
-    return match[1]
-  }
-  return null
-}
-
-function skipLocation (topicString, i) {
-  if (clone.locations[i] === null) {
-    return topic
-  }
-  return null
 }
 
 function writeSourceId (consultation) {
