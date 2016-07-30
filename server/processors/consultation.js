@@ -1,5 +1,6 @@
 module.exports = {
   addLocations: addLocations,
+  createDecision: createDecision,
   process: process,
   removeQuery: removeQuery,
   writeSourceId: writeSourceId
@@ -11,6 +12,8 @@ function process (req, res, next) {
 }
 
 function createDecision (consultation) {
+  let decision = addLocations(consultation)
+  return writeSourceId(decision)
 }
 
 function removeQuery (rawObject) {
