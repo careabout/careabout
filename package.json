@@ -8,8 +8,8 @@
     "watch": "webpack --watch",
     "start": "node server/server.js",
     "server": "node-inspector --web-port 8888 & nodemon --debug server/server",
-    "test:workers": "tape tests/worker/**/*.test.js | tap-spec",
-    "test:server": "tape tests/server/processors/**/*.test.js | tap-spec"
+    "test:workers": "tape 'tests/worker/**/*.test.js' | tap-spec",
+    "test:server": "tape 'tests/server/**/*.test.js' | tap-spec"
   },
   "babel": {
     "presets": [
