@@ -2,7 +2,14 @@ const mongoose = require('mongoose')
 const Decision = require('./models/Decision')
 
 module.exports = {
+  getDecisions: getDecisions,
   saveBatch: saveBatch
+}
+
+function getDecisions () {
+  return {
+    locations: []
+  }
 }
 
 function saveBatch (req, res) {
