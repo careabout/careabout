@@ -4,7 +4,7 @@ var path = require('path')
 require('dotenv').config()
 
 var index = require('./routes/index')
-var subscriptions = require('./routes/subscriptions')
+var subscriptions = require('./routes/subscription')
 
 var PORT = process.env.PORT || 3000
 var app = express()
