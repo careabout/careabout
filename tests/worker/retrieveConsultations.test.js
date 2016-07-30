@@ -18,7 +18,7 @@ test('Returned object has query property', (t) => {
   const expected = true
   return retrieve.getConsultations()
     .then((consultations) => {
-      const actual = consultations.body.hasOwnProperty('query')
+      const actual = consultations.body.hasOwnProperty('consultations')
       t.equal(actual, expected)
     })
     .catch(err => {
