@@ -40,20 +40,22 @@ test('writeSourceId creates a source id', t => {
 
 test('createDecision creates a decision', t => {
   const expected = { 'sourceId': 1, 'title': 'Wombat.', 'description': 'Wombats and how cool they are.', 'organisation': [ { id: 1, name: 'Wombats, Inc.' } ], 'url': 'https://wombats.com', 'start': 'Now', 'end': 'Then', 'status': 'current', 'topics': [], 'locations': [] }
-  const raw = { 
-    'id': 1, 
-    'title': 'Wombat.', 
-    'description': 'Wombats and how cool they are.', 
-    'organisation': [ 
-      { id: 1, name: 'Wombats, Inc.' } 
-    ], 
-    'url': 'https://wombats.com', 
-    'start': 'Now', 
-    'end': 'Then', 
-    'status': 'current', 
-    'topic': [] 
-  }
+  const raw = { 'id': 1, 'title': 'Wombat.', 'description': 'Wombats and how cool they are.', 'organisation': [ { id: 1, name: 'Wombats, Inc.' } ], 'url': 'https://wombats.com', 'start': 'Now', 'end': 'Then', 'status': 'current', 'topic': [] }
   const actual = consultation.createDecision(raw)
+  t.deepEqual(actual, expected)
+  t.end()
+})
+
+test('processAll processes all consultations', t => {
+  const expected = [
+    { 'sourceId': 1, 'topics': [], 'locations': [] },
+    { 'sourceId': 2, 'topics': [], 'locations': [] }
+  ]
+  const raw = [
+    { 'id': 1, 'topic': [] },
+    { 'id': 2, 'topic': [] }
+  ]
+  const actual = consultation.processAll(raw)
   t.deepEqual(actual, expected)
   t.end()
 })

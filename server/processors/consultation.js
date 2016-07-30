@@ -2,6 +2,7 @@ module.exports = {
   addLocations: addLocations,
   createDecision: createDecision,
   process: process,
+  processAll: processAll,
   removeQuery: removeQuery,
   writeSourceId: writeSourceId
 }
@@ -9,6 +10,10 @@ module.exports = {
 function process (req, res, next) {
   req.body = 'PROCESS'
   next()
+}
+
+function processAll (consultations) {
+  return consultations.map(createDecision)
 }
 
 function createDecision (consultation) {
