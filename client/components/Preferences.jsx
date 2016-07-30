@@ -31,7 +31,9 @@ export default (props) => (
           </div>
           <div className="form-group">
             <br />
-            <button className='btn btn-default' onClick={props.subscribe}>Subscribe</button>{' '}
+            {props.isSubscribed ? <button className='btn btn-default' onClick={props.unsubscribe}>Unsubscribe</button> : <button className='btn btn-default' onClick={props.subscribe}>Subscribe</button>}
+
+            {' '}
             <button className='btn btn-primary' onClick={props.savePreferences}>Save Changes</button>{' '}
           </div>
         </fieldset>

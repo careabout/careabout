@@ -97,8 +97,8 @@
 	}));
 	
 	store.dispatch((0, _actions.getDecisions)());
-	store.dispatch((0, _actions.getPreferences)());
 	store.dispatch((0, _actions.checkRegistered)());
+	store.dispatch((0, _actions.monitorRegistered)());
 	
 	var OneSignal = OneSignal || [];
 	console.log(OneSignal);
@@ -29714,7 +29714,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.subscribe = exports.updateRegistrationStatus = exports.checkRegistered = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = exports.UPDATE_REGISTRATION_STATUS = exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.SUBSCRIBE = undefined;
+	exports.unsubscribe = exports.subscribe = exports.updateRegistrationStatus = exports.populateUserId = exports.getUserId = exports.monitorRegistered = exports.checkRegistered = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.updateUserPreferences = exports.getPreferences = exports.getDecisions = exports.UPDATE_USER_PREFERENCES = exports.UPDATE_USER_ID = exports.UPDATE_REGISTRATION_STATUS = exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.SUBSCRIBE = undefined;
 	
 	var _superagent = __webpack_require__(270);
 	
@@ -29730,6 +29730,8 @@
 	var UPDATE_PREFERENCE = exports.UPDATE_PREFERENCE = 'UPDATE_PREFERENCE';
 	var SAVE_PREFERENCES = exports.SAVE_PREFERENCES = 'SAVE_PREFERENCES';
 	var UPDATE_REGISTRATION_STATUS = exports.UPDATE_REGISTRATION_STATUS = 'UPDATE_REGISTRATION_STATUS';
+	var UPDATE_USER_ID = exports.UPDATE_USER_ID = 'UPDATE_USER_ID';
+	var UPDATE_USER_PREFERENCES = exports.UPDATE_USER_PREFERENCES = 'UPDATE_USER_PREFERENCES';
 	
 	var getDecisions = exports.getDecisions = function getDecisions() {
 	  return function (dispatch) {
@@ -29740,11 +29742,20 @@
 	  };
 	};
 	
-	var getPreferences = exports.getPreferences = function getPreferences() {
+	var getPreferences = exports.getPreferences = function getPreferences(id) {
 	  return function (dispatch) {
-	    var preferencesData = ['Electricity', 'd'];
-	    console.log('NEED TO CHANGE GET PREFERENCES TO LOAD FROM API');
-	    dispatch(populatePreferences(preferencesData));
+	    var preferencesUrl = 'http://careabout-notifications.herokuapp.com/v1/subscriptions/0052924d-a741-4439-8e3f-99241f7be6fe';
+	    _superagent2.default.get(preferencesUrl).end(function (err, res) {
+	      dispatch(updateUserPreferences(res.body));
+	    });
+	  };
+	};
+	
+	var updateUserPreferences = exports.updateUserPreferences = function updateUserPreferences(preferences) {
+	  console.log('prefences', preferences);
+	  return {
+	    type: UPDATE_USER_PREFERENCES,
+	    preferences: preferences
 	  };
 	};
 	
@@ -29782,7 +29793,35 @@
 	  return function (dispatch) {
 	    OneSignal.push(["isPushNotificationsEnabled", function (enabled) {
 	      dispatch(updateRegistrationStatus(enabled));
+	      if (enabled) {
+	        dispatch(getUserId());
+	      }
 	    }]);
+	  };
+	};
+	
+	var monitorRegistered = exports.monitorRegistered = function monitorRegistered() {
+	  return function (dispatch) {
+	    OneSignal.on('subscriptionChange', function (isSubscribed) {
+	      dispatch(updateRegistrationStatus(isSubscribed));
+	      dispatch(getUserId());
+	    });
+	  };
+	};
+	
+	var getUserId = exports.getUserId = function getUserId() {
+	  return function (dispatch) {
+	    OneSignal.push(["getUserId", function (userId) {
+	      dispatch(populateUserId(userId));
+	      dispatch(getPreferences(userId));
+	    }]);
+	  };
+	};
+	
+	var populateUserId = exports.populateUserId = function populateUserId(userId) {
+	  return {
+	    type: UPDATE_USER_ID,
+	    id: userId
 	  };
 	};
 	
@@ -29796,6 +29835,12 @@
 	var subscribe = exports.subscribe = function subscribe() {
 	  return function (dispatch) {
 	    OneSignal.push(["registerForPushNotifications", { modalPrompt: true }]);
+	  };
+	};
+	
+	var unsubscribe = exports.unsubscribe = function unsubscribe() {
+	  return function (dispatch) {
+	    OneSignal.push(["setSubscription", false]);
 	  };
 	};
 
@@ -31566,7 +31611,11 @@
 	            'div',
 	            { className: 'form-group' },
 	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
+	            props.isSubscribed ? _react2.default.createElement(
+	              'button',
+	              { className: 'btn btn-default', onClick: props.unsubscribe },
+	              'Unsubscribe'
+	            ) : _react2.default.createElement(
 	              'button',
 	              { className: 'btn btn-default', onClick: props.subscribe },
 	              'Subscribe'
@@ -31744,6 +31793,9 @@
 	    },
 	    subscribe: function subscribe() {
 	      dispatch((0, _actions.subscribe)());
+	    },
+	    unsubscribe: function unsubscribe() {
+	      dispatch((0, _actions.unsubscribe)());
 	    }
 	  };
 	};
@@ -31961,7 +32013,8 @@
 	var _actions = __webpack_require__(269);
 	
 	var initialState = {
-	  isSubscribed: false
+	  isSubscribed: false,
+	  id: null
 	};
 	
 	exports.default = function () {
@@ -31971,6 +32024,8 @@
 	  switch (action.type) {
 	    case _actions.UPDATE_REGISTRATION_STATUS:
 	      return Object.assign({}, state, { isSubscribed: action.enabled });
+	    case _actions.UPDATE_USER_ID:
+	      return Object.assign({}, state, { id: action.id });
 	    default:
 	      return state;
 	  }

@@ -13,7 +13,7 @@ import Preferences from './containers/Preferences'
 import DecisionDetails from './containers/DecisionDetails'
 
 import reducer from './reducers'
-import { getDecisions, getPreferences, checkRegistered } from './actions'
+import { getDecisions, getPreferences, checkRegistered, monitorRegistered } from './actions'
 
 let store = createStore(
   reducer, compose(
@@ -22,8 +22,8 @@ let store = createStore(
   ))
 
 store.dispatch(getDecisions())
-store.dispatch(getPreferences())
 store.dispatch(checkRegistered())
+store.dispatch(monitorRegistered())
 
 var OneSignal = OneSignal || []
 console.log(OneSignal)
