@@ -21,7 +21,7 @@ test('Returned object has query property', (t) => {
     })
 })
 
-test.only('postConsultations posts to decisions API', t => {
+test('postConsultations posts to decisions API', t => {
   const expected = {}
   const raw = {
     "query": { "offset": 0, "count": 20, "total": 81 },
