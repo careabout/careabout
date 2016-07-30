@@ -49,6 +49,13 @@ export const savePreferences = () => {
   }
 }
 
+export const subscribe = () => {
+  return dispatch => {
+    console.log('NEED TO IMPLEMENT SUBSCRIBE')
+  }
+}
+
+export const SUBSCRIBE = 'SUBSCRIBE'
 export const GET_DECISIONS = 'GET_DECISIONS'
 export const POPULATE_DECISIONS = 'POPULATE_DECISIONS'
 export const GET_PREFERENCES = 'GET_PREFERENCES'
