@@ -29475,20 +29475,30 @@
 	
 	var _Decision2 = _interopRequireDefault(_Decision);
 	
+	var _reactRouter = __webpack_require__(204);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { className: 'col-lg-12' },
 	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Decisions'
-	    ),
-	    props.decisions.map(function (decision, i) {
-	      return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
-	    })
+	      'div',
+	      { className: 'bs-component' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'model' },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Decisions'
+	        ),
+	        props.decisions.map(function (decision, i) {
+	          return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
+	        })
+	      )
+	    )
 	  );
 	};
 
@@ -31195,7 +31205,7 @@
 /* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -31205,46 +31215,44 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(204);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
-	    "div",
-	    { className: "container" },
+	    'div',
+	    { className: 'modal-dialog' },
 	    _react2.default.createElement(
-	      "h1",
-	      null,
-	      props.title
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "description: ",
-	      props.description
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "url: ",
-	      props.url
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "start: ",
-	      props.start
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "end: ",
-	      props.end
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "status: ",
-	      props.status
+	      'div',
+	      { className: 'modal-content' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-header' },
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
+	          '×'
+	        ),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '' },
+	          _react2.default.createElement(
+	            'h3',
+	            { className: 'modal-title' },
+	            props.title
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-body' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          props.description
+	        )
+	      )
 	    )
 	  );
 	};

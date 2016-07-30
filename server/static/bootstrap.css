@@ -5910,8 +5910,9 @@ button.close {
   margin: 10px;
 }
 .modal-content {
+    color: #fff;
   position: relative;
-  background-color: #ffffff;
+  background-color: #5289fd;
   border: 1px solid #999999;
   border: 1px solid transparent;
   border-radius: 3px;
@@ -5946,6 +5947,7 @@ button.close {
   margin-top: -2px;
 }
 .modal-title {
+    color: #fff;
   margin: 0;
   line-height: 1.846;
 }
