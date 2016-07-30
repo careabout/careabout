@@ -31109,11 +31109,21 @@
 	
 	var _decisions2 = _interopRequireDefault(_decisions);
 	
+	var _topics = __webpack_require__(280);
+	
+	var _topics2 = _interopRequireDefault(_topics);
+	
+	var _locations = __webpack_require__(281);
+	
+	var _locations2 = _interopRequireDefault(_locations);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = (0, _redux.combineReducers)({
 	  routing: _reactRouterRedux.routerReducer,
-	  decisions: _decisions2.default
+	  decisions: _decisions2.default,
+	  topics: _topics2.default,
+	  locations: _locations2.default
 	});
 
 /***/ },
@@ -31310,6 +31320,60 @@
 	    )
 	  );
 	};
+
+/***/ },
+/* 280 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = deck;
+	
+	var _actions = __webpack_require__(269);
+	
+	var initialState = [];
+	
+	function deck() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _actions.POPULATE_DECISIONS:
+	      return action.topics;
+	    default:
+	      return state;
+	  }
+	}
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = deck;
+	
+	var _actions = __webpack_require__(269);
+	
+	var initialState = [];
+	
+	function deck() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _actions.POPULATE_DECISIONS:
+	      return action.locations;
+	    default:
+	      return state;
+	  }
+	}
 
 /***/ }
 /******/ ]);
