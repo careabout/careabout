@@ -21,7 +21,7 @@ export const getDecisions = () => {
 
 export const getPreferences = () => {
   return dispatch => {
-    var preferencesData = ['a','d']
+    var preferencesData = ['Electricity','d']
     console.log('NEED TO CHANGE GET PREFERENCES TO LOAD FROM API')
     dispatch(populatePreferences(preferencesData))
   }
@@ -59,8 +59,7 @@ export const savePreferences = () => {
 
 export const subscribe = () => {
   return dispatch => {
-    var OneSignal = OneSignal || []
-    console.log(OneSignal)
+    OneSignal.push(["registerForPushNotifications", {modalPrompt: true}]);
     console.log('NEED TO IMPLEMENT SUBSCRIBE')
   }
 }
