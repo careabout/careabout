@@ -3,11 +3,15 @@ import Decision from './Decision'
 
 export default (props) => {
   return (
-    <div>
-      <h1>Decisions</h1>
-      {props.decisions.map((decision, i) => {
-        return <Decision key={i} {...decision}/>
-      })}
+    <div className="col-lg-12">
+        <div className="bs-component">
+            <div className="model">
+              <h1>Decisions</h1>
+              {props.decisions.map((decision, i) => {
+                return <Decision key={i} {...decision}/>
+              })}
+            </div>
+        </div>
     </div>
   )
 }
