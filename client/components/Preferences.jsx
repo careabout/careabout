@@ -1,18 +1,21 @@
 import React from 'react'
 import Preference from '../containers/Preference'
 
-export default class Preferences extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <div className="form-horizontal">
+export default (props) => (
+  <div className="container">
+    <div className="page-header" id="banner">
+      <div className="row">
+        <div className="col-lg-8 col-md-7 col-sm-6">
+          <h2>Preferences</h2>
+        </div>
+      </div>
+    </div>
+    <div className="col-lg-12">
+      <div className="form-horizontal">
+        <fieldset>
           <div className="form-group">
             <h3>Topics</h3>
-            {this.props.topics.map((topic, i) => {
+            {props.topics.map((topic, i) => {
               return (
                 <Preference key={i} topic={topic} />
               )
@@ -20,16 +23,20 @@ export default class Preferences extends React.Component {
           </div>
           <div className="form-group">
             <h3>Locations</h3>
-            {this.props.locations.map((location, i) => {
+            {props.locations.map((location, i) => {
               return (
                 <Preference key={i} topic={location} />
               )
             })}
           </div>
-          <button onClick={this.props.subscribe}>Subscribe</button>
-          <button onClick={this.props.savePreferences}>Save Changes</button>
-        </div>
+          <div className="form-group">
+            <br />
+            <button className='btn btn-default' onClick={props.subscribe}>Subscribe</button>{' '}
+            <button className='btn btn-primary' onClick={props.savePreferences}>Save Changes</button>
+          </div>
+        </fieldset>
+
       </div>
-    )
-  }
-}
+    </div>
+  </div>
+)
