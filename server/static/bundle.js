@@ -76,6 +76,10 @@
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
+	var _Preferences = __webpack_require__(278);
+	
+	var _Preferences2 = _interopRequireDefault(_Preferences);
+	
 	var _reducers = __webpack_require__(275);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
@@ -103,7 +107,8 @@
 	        _reactRouter.Route,
 	        { path: '/', component: _App2.default },
 	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Landing2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'decisions', component: _Decisions2.default })
+	        _react2.default.createElement(_reactRouter.Route, { path: 'decisions', component: _Decisions2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'preferences', component: _Preferences2.default })
 	      )
 	    )
 	  ), document.getElementById('app'));
@@ -31196,6 +31201,30 @@
 	      'status: ',
 	      props.status
 	    )
+	  );
+	};
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'h1',
+	    null,
+	    'Prefernces'
 	  );
 	};
 
