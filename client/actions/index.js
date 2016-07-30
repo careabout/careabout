@@ -59,6 +59,8 @@ export const savePreferences = () => {
 
 export const subscribe = () => {
   return dispatch => {
+    var OneSignal = OneSignal || []
+    console.log(OneSignal)
     console.log('NEED TO IMPLEMENT SUBSCRIBE')
   }
 }

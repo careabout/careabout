@@ -99,6 +99,9 @@
 	store.dispatch((0, _actions.getDecisions)());
 	store.dispatch((0, _actions.getPreferences)());
 	
+	var OneSignal = OneSignal || [];
+	console.log(OneSignal);
+	
 	var history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.hashHistory, store);
 	
 	document.addEventListener('DOMContentLoaded', function () {
@@ -29487,21 +29490,37 @@
 	exports.default = function (props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'col-lg-12' },
+	    { className: 'container' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'bs-component' },
+	      { className: 'page-header', id: 'banner' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'model' },
+	        { className: 'row' },
 	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Decisions'
-	        ),
-	        props.decisions.map(function (decision, i) {
-	          return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
-	        })
+	          'div',
+	          { className: 'col-lg-8 col-md-7 col-sm-6' },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Decisions'
+	          )
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'col-lg-12' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'bs-component' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'modal' },
+	          props.decisions.map(function (decision, i) {
+	            return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
+	          })
+	        )
 	      )
 	    )
 	  );
@@ -29581,6 +29600,8 @@
 	
 	var subscribe = exports.subscribe = function subscribe() {
 	  return function (dispatch) {
+	    var OneSignal = OneSignal || [];
+	    console.log(OneSignal);
 	    console.log('NEED TO IMPLEMENT SUBSCRIBE');
 	  };
 	};
@@ -31279,8 +31300,6 @@
 	  value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -31291,30 +31310,36 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Preferences = function (_React$Component) {
-	  _inherits(Preferences, _React$Component);
-	
-	  function Preferences(props) {
-	    _classCallCheck(this, Preferences);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Preferences).call(this, props));
-	  }
-	
-	  _createClass(Preferences, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'container' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'page-header', id: 'banner' },
+	      _react2.default.createElement(
 	        'div',
-	        { className: 'container' },
+	        { className: 'row' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'form-horizontal' },
+	          { className: 'col-lg-8 col-md-7 col-sm-6' },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Preferences'
+	          )
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'col-lg-12' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'form-horizontal' },
+	        _react2.default.createElement(
+	          'fieldset',
+	          null,
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'form-group' },
@@ -31323,7 +31348,7 @@
 	              null,
 	              'Topics'
 	            ),
-	            this.props.topics.map(function (topic, i) {
+	            props.topics.map(function (topic, i) {
 	              return _react2.default.createElement(_Preference2.default, { key: i, topic: topic });
 	            })
 	          ),
@@ -31335,29 +31360,31 @@
 	              null,
 	              'Locations'
 	            ),
-	            this.props.locations.map(function (location, i) {
+	            props.locations.map(function (location, i) {
 	              return _react2.default.createElement(_Preference2.default, { key: i, topic: location });
 	            })
 	          ),
 	          _react2.default.createElement(
-	            'button',
-	            { onClick: this.props.subscribe },
-	            'Subscribe'
-	          ),
-	          _react2.default.createElement(
-	            'button',
-	            { onClick: this.props.savePreferences },
-	            'Save Changes'
+	            'div',
+	            { className: 'form-group' },
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'btn btn-default', onClick: props.subscribe },
+	              'Subscribe'
+	            ),
+	            ' ',
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'btn btn-primary', onClick: props.savePreferences },
+	              'Save Changes'
+	            )
 	          )
 	        )
-	      );
-	    }
-	  }]);
-	
-	  return Preferences;
-	}(_react2.default.Component);
-	
-	exports.default = Preferences;
+	      )
+	    )
+	  );
+	};
 
 /***/ },
 /* 279 */
