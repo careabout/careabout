@@ -29516,13 +29516,21 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.SUBSCRIBE = exports.subscribe = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = undefined;
+	exports.subscribe = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.SUBSCRIBE = undefined;
 	
 	var _superagent = __webpack_require__(270);
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SUBSCRIBE = exports.SUBSCRIBE = 'SUBSCRIBE';
+	var GET_DECISIONS = exports.GET_DECISIONS = 'GET_DECISIONS';
+	var POPULATE_DECISIONS = exports.POPULATE_DECISIONS = 'POPULATE_DECISIONS';
+	var GET_PREFERENCES = exports.GET_PREFERENCES = 'GET_PREFERENCES';
+	var POPULATE_PREFERENCES = exports.POPULATE_PREFERENCES = 'POPULATE_PREFERENCES';
+	var UPDATE_PREFERENCE = exports.UPDATE_PREFERENCE = 'UPDATE_PREFERENCE';
+	var SAVE_PREFERENCES = exports.SAVE_PREFERENCES = 'SAVE_PREFERENCES';
 	
 	var getDecisions = exports.getDecisions = function getDecisions() {
 	  return function (dispatch) {
@@ -29576,14 +29584,6 @@
 	    console.log('NEED TO IMPLEMENT SUBSCRIBE');
 	  };
 	};
-	
-	var SUBSCRIBE = exports.SUBSCRIBE = 'SUBSCRIBE';
-	var GET_DECISIONS = exports.GET_DECISIONS = 'GET_DECISIONS';
-	var POPULATE_DECISIONS = exports.POPULATE_DECISIONS = 'POPULATE_DECISIONS';
-	var GET_PREFERENCES = exports.GET_PREFERENCES = 'GET_PREFERENCES';
-	var POPULATE_PREFERENCES = exports.POPULATE_PREFERENCES = 'POPULATE_PREFERENCES';
-	var UPDATE_PREFERENCE = exports.UPDATE_PREFERENCE = 'UPDATE_PREFERENCE';
-	var SAVE_PREFERENCES = exports.SAVE_PREFERENCES = 'SAVE_PREFERENCES';
 
 /***/ },
 /* 270 */
