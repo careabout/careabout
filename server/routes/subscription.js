@@ -1,6 +1,6 @@
 var express = require('express')
 
-//var db = require('../db')
+var db = require('../db')
 var onesignal = require('../onesignal')
 
 var router = express.Router()
@@ -11,11 +11,18 @@ router.post('/:id', function (req, res) {
   var locations = req.body.locations
   onesignal.add(id, topics, locations)
   .then(() => {
-    //db.save(id, topics)
+    // check id and if exists update, if not create
+    db.save(id, topics, locations)
     res.sendStatus(200)
   })
   .catch((e) => res.send(500, e.message))
 })
+
+/*
+router.get('/:id', function (req, res) {
+  var id = req.params.id
+})
+*/
 
 module.exports = router
 

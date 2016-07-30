@@ -9,7 +9,6 @@ var decisions = require('./routes/decisions')
 var subscriptions = require('./routes/subscription')
 var decisions = require('./routes/decisions')
 
-
 var PORT = process.env.PORT || 3000
 var app = express()
 
