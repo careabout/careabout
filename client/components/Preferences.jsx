@@ -32,7 +32,7 @@ export default (props) => (
           <div className="form-group">
             <br />
             <button className='btn btn-default' onClick={props.subscribe}>Subscribe</button>{' '}
-            <button className='btn btn-primary' onClick={props.savePreferences}>Save Changes</button>
+            <button className='btn btn-primary' onClick={props.savePreferences}>Save Changes</button>{' '}
           </div>
         </fieldset>
 

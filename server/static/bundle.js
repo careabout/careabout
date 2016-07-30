@@ -29398,7 +29398,7 @@
 /* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -29410,19 +29410,197 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
-	    'div',
-	    null,
+	    "div",
+	    { className: "container" },
 	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Landing'
-	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'Laws and plans are being created and changed all the time without the people of the nation even being aware. There should be a way to be notified when something close to your heart is about to be decided. That is where our App comes in. Put in your topics of interest and when an issue around that topic comes up then you will be informed and then there is the opportunity to engage with government to mold the country and area that you live in.'
+	      "div",
+	      _defineProperty({ className: "jumbotron" }, "className", "tickerParent"),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "container" },
+	        _react2.default.createElement(
+	          "div",
+	          { id: "ticker", className: "row" },
+	          _react2.default.createElement(
+	            "div",
+	            { id: "text" },
+	            _react2.default.createElement(
+	              "h1",
+	              { className: "gray" },
+	              "Care about"
+	            )
+	          ),
+	          _react2.default.createElement("div", { id: "first" }),
+	          _react2.default.createElement(
+	            "div",
+	            { id: "second" },
+	            _react2.default.createElement(
+	              "ul",
+	              null,
+	              _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                  "h1",
+	                  { className: "lightergray" },
+	                  "New Zealand"
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                  "h1",
+	                  { className: "lightergray" },
+	                  "buildings"
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                  "h1",
+	                  { className: "lightergray" },
+	                  "Education"
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                  "h1",
+	                  { className: "lightergray" },
+	                  "discussions"
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                  "h1",
+	                  { className: "lightergray" },
+	                  "environment"
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "li",
+	                null,
+	                _react2.default.createElement(
+	                  "h1",
+	                  { className: "lightergray" },
+	                  "contributing"
+	                )
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "row" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "col-lg-12" },
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              _react2.default.createElement(
+	                "a",
+	                { className: "btn btn-primary btn-lg" },
+	                "Get Started »"
+	              )
+	            )
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row", id: "homeDetails" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col-lg-12" },
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Laws and plans are being created and changed all the time without the people of the nation even being aware."
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "There should be a way to be notified when something close to your heart is about to be decided. That is where our App comes in. Put in your topics of interest and when an issue around that topic comes up then you will be informed and then there is the opportunity to engage with government to mold the country and area that you live in."
+	          ),
+	          _react2.default.createElement(
+	            "footer",
+	            null,
+	            _react2.default.createElement(
+	              "div",
+	              { className: "row" },
+	              _react2.default.createElement(
+	                "div",
+	                { className: "col-lg-12" },
+	                _react2.default.createElement(
+	                  "ul",
+	                  { className: "list-unstyled" },
+	                  _react2.default.createElement(
+	                    "li",
+	                    { className: "pull-right" },
+	                    _react2.default.createElement(
+	                      "a",
+	                      { href: "#top" },
+	                      "Back to top"
+	                    )
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  _react2.default.createElement(
+	                    "a",
+	                    { href: "/", rel: "nofollow" },
+	                    "View the repo"
+	                  ),
+	                  " on GitHub"
+	                ),
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  _react2.default.createElement(
+	                    "a",
+	                    { href: "https://github.com/careabout/careabout", rel: "nofollow" },
+	                    "Bootstrap"
+	                  ),
+	                  " Theme by ",
+	                  _react2.default.createElement(
+	                    "a",
+	                    { href: "http://thomaspark.co/", rel: "nofollow" },
+	                    "Thomas Park"
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  "Icons from ",
+	                  _react2.default.createElement(
+	                    "a",
+	                    { href: "http://fortawesome.github.io/Font-Awesome/", rel: "nofollow" },
+	                    "Font Awesome"
+	                  ),
+	                  ". Web fonts from ",
+	                  _react2.default.createElement(
+	                    "a",
+	                    { href: "http://www.google.com/webfonts", rel: "nofollow" },
+	                    "Google"
+	                  ),
+	                  "."
+	                )
+	              )
+	            )
+	          )
+	        )
+	      )
 	    )
 	  );
 	};
@@ -29562,7 +29740,7 @@
 	
 	var getPreferences = exports.getPreferences = function getPreferences() {
 	  return function (dispatch) {
-	    var preferencesData = ['a', 'd'];
+	    var preferencesData = ['Electricity', 'd'];
 	    console.log('NEED TO CHANGE GET PREFERENCES TO LOAD FROM API');
 	    dispatch(populatePreferences(preferencesData));
 	  };
@@ -29600,8 +29778,7 @@
 	
 	var subscribe = exports.subscribe = function subscribe() {
 	  return function (dispatch) {
-	    var OneSignal = OneSignal || [];
-	    console.log(OneSignal);
+	    OneSignal.push(["registerForPushNotifications", { modalPrompt: true }]);
 	    console.log('NEED TO IMPLEMENT SUBSCRIBE');
 	  };
 	};
@@ -31378,7 +31555,8 @@
 	              'button',
 	              { className: 'btn btn-primary', onClick: props.savePreferences },
 	              'Save Changes'
-	            )
+	            ),
+	            ' '
 	          )
 	        )
 	      )
@@ -31420,11 +31598,7 @@
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { to: '/' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'navbar-brand' },
-	              'Care About'
-	            )
+	            _react2.default.createElement('img', { src: 'care_about_logo.png', style: { maxHeight: '35px', width: 'auto' } })
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -31712,25 +31886,18 @@
 	var Preference = function (_React$Component) {
 	  _inherits(Preference, _React$Component);
 	
-	  function Preference(props) {
+	  function Preference() {
 	    _classCallCheck(this, Preference);
 	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Preference).call(this, props));
-	
-	    _this.updatePreferences = _this.updatePreferences.bind(_this);
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Preference).apply(this, arguments));
 	  }
 	
 	  _createClass(Preference, [{
 	    key: 'setCheckbox',
 	    value: function setCheckbox(topic) {
-	      var checkBox = false;
-	      this.props.preferences.map(function (preference) {
-	        if (preference === topic) {
-	          checkBox = true;
-	        }
-	      });
-	      return checkBox;
+	      return this.props.preferences.filter(function (preference) {
+	        return preference === topic;
+	      }).length > 0;
 	    }
 	  }, {
 	    key: 'updatePreferences',
@@ -31747,7 +31914,7 @@
 	        _react2.default.createElement(
 	          'label',
 	          null,
-	          _react2.default.createElement('input', { type: 'checkbox', name: topic, value: topic, onChange: this.updatePreferences, checked: this.setCheckbox(topic) }),
+	          _react2.default.createElement('input', { type: 'checkbox', name: topic, value: topic, onChange: this.updatePreferences.bind(this), checked: this.setCheckbox(topic) }),
 	          topic
 	        )
 	      );

@@ -1,19 +1,9 @@
 import React from 'react'
 
 export default class Preference extends React.Component {
-  constructor(props) {
-    super(props)
-    this.updatePreferences = this.updatePreferences.bind(this)
-  }
-
+  
   setCheckbox(topic) {
-    var checkBox = false
-    this.props.preferences.map((preference) => {
-      if (preference === topic) {
-        checkBox = true
-      }
-    })
-    return checkBox
+    return this.props.preferences.filter(preference => preference === topic).length > 0
   }
 
   updatePreferences(evt) {
@@ -25,7 +15,7 @@ export default class Preference extends React.Component {
     return (
       <div className='checkbox'>
         <label>
-          <input type='checkbox' name={topic} value={topic} onChange={this.updatePreferences} checked={this.setCheckbox(topic)} />
+          <input type='checkbox' name={topic} value={topic} onChange={this.updatePreferences.bind(this)} checked={this.setCheckbox(topic)} />
           {topic}
         </label>
       </div>
