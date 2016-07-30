@@ -33,8 +33,8 @@ router.get('/', function (req, res) {
       topic: ["topic2"],
       location: ["Auckland"]
     }],
-    topics: ['a', 'b', 'c'],
-    locations: ['d', 'e', 'f']
+    topics: ['Food safety and biosecurity', 'Fisheries', 'Electricity', 'Telecommunications'],
+    locations: ['Wellington', 'Far North', 'Auckland']
   }
 
   res.send(mockData)

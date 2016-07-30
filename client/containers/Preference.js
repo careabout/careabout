@@ -1,11 +1,9 @@
 import { connect } from 'react-redux'
-import Preferences from '../components/Preferences'
-import { updatePreference, savePreferences, subscribe } from '../actions'
+import Preference from '../components/Preference'
+import { updatePreference, savePreferences } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
-    topics: state.topics,
-    locations: state.locations,
     preferences: state.preferences
   }
 }
@@ -17,12 +15,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     savePreferences: () => {
       dispatch(savePreferences())
-    },
-    subscribe: () => {
-      dispatch(subscribe())
     }
   }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Preferences)
+export default connect(mapStateToProps, mapDispatchToProps)(Preference)
