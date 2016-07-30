@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
 import Preferences from '../components/Preferences'
-import { updatePreference, savePreferences, subscribe } from '../actions'
+import { updatePreference, savePreferences, subscribe, unsubscribe } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
     topics: state.topics,
     locations: state.locations,
-    preferences: state.preferences
+    preferences: state.preferences,
+    isSubscribed: state.notifications.isSubscribed
   }
 }
 
@@ -20,6 +21,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     subscribe: () => {
       dispatch(subscribe())
+    },
+    unsubscribe: () => {
+      dispatch(unsubscribe())
     }
   }
 }
