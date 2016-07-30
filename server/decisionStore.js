@@ -2,14 +2,18 @@ const mongoose = require('mongoose')
 const Decision = require('./models/Decision')
 
 module.exports = {
-  getDecisions: getDecisions,
+  buildViewModel: buildViewModel,
   saveBatch: saveBatch
 }
 
-function getDecisions () {
-  return {
-    locations: []
-  }
+function buildViewModel () {
+  const db = mongoose.connection
+  return Decision.find({}, (err, decisions) => {
+    if (err) {
+      return Promise.reject(err)
+    }
+    Promise.resolve(decisions)
+  })
 }
 
 function saveBatch (req, res) {
