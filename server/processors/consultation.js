@@ -20,12 +20,14 @@ function removeQuery (rawObject) {
   }
 }
 
+// NOTE: origin object has `topic`, dest object has `topics`
 function addLocations (decision) {
   const clone = Object.assign({}, decision)
   clone.locations = []
   clone.topics = []
+  delete clone.topic
 
-  decision.topics.forEach(topic => {
+  decision.topic.forEach(topic => {
     const re = /^Local government - ([a-z ]+)$/i
     const loc = re.exec(topic)
     if (loc) {

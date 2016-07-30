@@ -27,8 +27,8 @@ test('captureLocation does not get location if improper format', (t) => {
 
 test('addLocations adds a locations array', (t) => {
   const expected = { topics: ['Electricity'], locations: [] }
-  const decision = { topics: ['Electricity'] }
-  const actual = consultation.addLocations(decision)
+  const raw = { topic: ['Electricity'] }
+  const actual = consultation.addLocations(raw)
   t.deepEqual(actual, expected)
   t.end()
 })
@@ -38,10 +38,10 @@ test('addLocations correctly adds locations', (t) => {
     topics: ['Electricity'],
     locations: ['Far North']
   }
-  const decision = { 
-    topics: ['Electricity', 'Local government - Far North']
+  const raw = { 
+    topic: ['Electricity', 'Local government - Far North']
   }
-  const actual = consultation.addLocations(decision)
+  const actual = consultation.addLocations(raw)
   t.deepEqual(actual, expected)
   t.end()
 })
@@ -51,5 +51,11 @@ test('writeSourceId creates a source id', t => {
   const raw = { id: 1 }
   const actual = consultation.writeSourceId(raw)
   t.deepEqual(actual, expected)
+  t.end()
+})
+
+test('createDecision creates a decision', t => {
+  const expected = { 'sourceId': 1, 'title': 'Wombat.', 'description': 'Wombats and how cool they are.', 'organisation': [ { id: 1, name: 'Wombats, Inc.' } ], 'url': 'https://wombats.com', 'start': 'Now', 'end': 'Then', 'status': 'current', 'topic': [], 'locations': [] }
+  const raw = { 'id': 1, 'title': 'Wombat.', 'description': 'Wombats and how cool they are.', 'organisation': [ { id: 1, name: 'Wombats, Inc.' } ], 'url': 'https://wombats.com', 'start': 'Now', 'end': 'Then', 'status': 'current', 'topic': [] }
   t.end()
 })
