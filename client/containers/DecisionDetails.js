@@ -2,11 +2,10 @@ import { connect } from 'react-redux'
 import DecisionDetails from '../components/DecisionDetails'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps.params.id)
+  var decision = state.decisions.filter(decision => Number(ownProps.params.id) === decision.id)[0]
+  console.log(decision)
   return {
-    topics: state.topics,
-    locations: state.locations,
-    preferences: state.preferences
+    decision: decision
   }
 }
 

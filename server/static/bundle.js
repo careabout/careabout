@@ -31241,7 +31241,7 @@
 	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: 'decision/1' },
+	          { to: 'decision/' + props.id },
 	          _react2.default.createElement(
 	            'h3',
 	            { className: 'modal-title' },
@@ -31610,11 +31610,12 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var mapStateToProps = function mapStateToProps(state, ownProps) {
-	  console.log(ownProps.params.id);
+	  var decision = state.decisions.filter(function (decision) {
+	    return Number(ownProps.params.id) === decision.id;
+	  })[0];
+	  console.log(decision);
 	  return {
-	    topics: state.topics,
-	    locations: state.locations,
-	    preferences: state.preferences
+	    decision: decision
 	  };
 	};
 	
@@ -31637,6 +31638,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (props) {
+	  console.log(props);
 	  return _react2.default.createElement(
 	    'div',
 	    null,
