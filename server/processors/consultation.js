@@ -4,6 +4,7 @@ module.exports = {
   process: process,
   processAll: processAll,
   removeQuery: removeQuery,
+  writeOrganisation: writeOrganisation,
   writeSourceId: writeSourceId
 }
 
@@ -51,6 +52,12 @@ function addLocations (decision) {
     }
     clone.topics.push(topic)
   })
+  return clone
+}
+
+function writeOrganisation (consultation) {
+  const clone = Object.assign({}, consultation)
+  clone.organisation = consultation.organisation[0].name
   return clone
 }
 

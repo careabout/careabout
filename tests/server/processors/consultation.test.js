@@ -59,3 +59,11 @@ test('processAll processes all consultations', t => {
   t.deepEqual(actual, expected)
   t.end()
 })
+
+test('writeOrganisation gets the name property', t => {
+  const expected = { organisation: 'Wombats Inc.' }
+  const raw = { organisation: [{ id: 1, name: 'Wombats Inc.' }] }
+  const actual = consultation.writeOrganisation(raw)
+  t.deepEqual(actual, expected)
+  t.end()
+})
