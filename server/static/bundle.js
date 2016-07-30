@@ -31145,7 +31145,7 @@
 /* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -31159,47 +31159,41 @@
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
-	    'div',
-	    null,
+	    "div",
+	    { className: "container" },
 	    _react2.default.createElement(
-	      'h1',
+	      "h1",
 	      null,
-	      'Decision'
-	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'title: ',
 	      props.title
 	    ),
 	    _react2.default.createElement(
-	      'p',
+	      "p",
 	      null,
-	      'description: ',
+	      "description: ",
 	      props.description
 	    ),
 	    _react2.default.createElement(
-	      'p',
+	      "p",
 	      null,
-	      'url: ',
+	      "url: ",
 	      props.url
 	    ),
 	    _react2.default.createElement(
-	      'p',
+	      "p",
 	      null,
-	      'start: ',
+	      "start: ",
 	      props.start
 	    ),
 	    _react2.default.createElement(
-	      'p',
+	      "p",
 	      null,
-	      'end: ',
+	      "end: ",
 	      props.end
 	    ),
 	    _react2.default.createElement(
-	      'p',
+	      "p",
 	      null,
-	      'status: ',
+	      "status: ",
 	      props.status
 	    )
 	  );
@@ -31225,7 +31219,7 @@
 	  return _react2.default.createElement(
 	    'h1',
 	    null,
-	    'Prefernces'
+	    'Preferences'
 	  );
 	};
 

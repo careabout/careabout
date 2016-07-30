@@ -2,6 +2,6 @@ import React from 'react'
 
 export default (props) => {
   return (
-    <h1>Prefernces</h1>
+    <h1>Preferences</h1>
   )
 }

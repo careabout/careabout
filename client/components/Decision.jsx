@@ -2,9 +2,8 @@ import React from 'react'
 
 export default (props) => {
   return (
-    <div>
-      <h1>Decision</h1>
-      <p>title: {props.title}</p>
+    <div className="container">
+      <h1>{props.title}</h1>
       <p>description: {props.description}</p>
       <p>url: {props.url}</p>
       <p>start: {props.start}</p>
