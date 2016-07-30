@@ -1,4 +1,14 @@
-var sendNotification = function(data) {
+require('dotenv').config()
+
+var message = { 
+  app_id: process.env.APP_ID,
+  contents: {"en": "This is your Auckland notification."},
+  included_segments: ["Auckland"]
+}
+
+sendNotification(message)
+
+function sendNotification (data) {
   var headers = {
     "Content-Type": "application/json",
     "Authorization": "Basic " + process.env.AUTH_HEADER
@@ -28,11 +38,3 @@ var sendNotification = function(data) {
   req.write(JSON.stringify(data))
   req.end()
 }
-
-var message = { 
-  app_id: process.env.APP_ID,
-  contents: {"en": "Yo! How 'bout a notification'"},
-  included_segments: ["All"]
-}
-
-sendNotification(message)
