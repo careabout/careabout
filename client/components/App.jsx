@@ -5,7 +5,7 @@ export default React.createClass({
   render () {
     return (
       <div>
-        <h1>Careabout</h1>
+        <h1>Careabout - Change your world</h1>
         <Landing />
       </div>
     )
