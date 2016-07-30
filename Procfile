@@ -1,2 +1,2 @@
 web: node server.js
-worker: node retrieveConsultations.js
+worker: node workers/retrieveConsultations.js
