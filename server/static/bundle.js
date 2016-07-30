@@ -29461,6 +29461,8 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -29481,7 +29483,7 @@
 	      'Decisions'
 	    ),
 	    props.decisions.map(function (decision, i) {
-	      return _react2.default.createElement(_Decision2.default, { title: decision.title });
+	      return _react2.default.createElement(_Decision2.default, _extends({ key: i }, decision));
 	    })
 	  );
 	};
@@ -31161,7 +31163,38 @@
 	    _react2.default.createElement(
 	      'p',
 	      null,
+	      'title: ',
 	      props.title
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'description: ',
+	      props.description
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'url: ',
+	      props.url
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'start: ',
+	      props.start
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'end: ',
+	      props.end
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'status: ',
+	      props.status
 	    )
 	  );
 	};

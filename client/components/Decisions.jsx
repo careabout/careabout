@@ -6,7 +6,7 @@ export default (props) => {
     <div>
       <h1>Decisions</h1>
       {props.decisions.map((decision, i) => {
-        return <Decision title={decision.title}/>
+        return <Decision key={i} {...decision}/>
       })}
     </div>
   )
