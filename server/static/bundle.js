@@ -29714,7 +29714,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.unsubscribe = exports.subscribe = exports.updateRegistrationStatus = exports.populateUserId = exports.getUserId = exports.monitorRegistered = exports.checkRegistered = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.updateUserPreferences = exports.getPreferences = exports.getDecisions = exports.UPDATE_USER_PREFERENCES = exports.UPDATE_USER_ID = exports.UPDATE_REGISTRATION_STATUS = exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.SUBSCRIBE = undefined;
+	exports.unsubscribe = exports.subscribe = exports.updateRegistrationStatus = exports.populateUserId = exports.getUserId = exports.monitorRegistered = exports.checkRegistered = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = exports.UPDATE_USER_PREFERENCES = exports.UPDATE_USER_ID = exports.UPDATE_REGISTRATION_STATUS = exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.SUBSCRIBE = undefined;
 	
 	var _superagent = __webpack_require__(270);
 	
@@ -29746,16 +29746,9 @@
 	  return function (dispatch) {
 	    var preferencesUrl = 'http://careabout-notifications.herokuapp.com/v1/subscriptions/0052924d-a741-4439-8e3f-99241f7be6fe';
 	    _superagent2.default.get(preferencesUrl).end(function (err, res) {
-	      dispatch(updateUserPreferences(res.body));
+	      var result = ["Fisheries"];
+	      dispatch(populatePreferences(result));
 	    });
-	  };
-	};
-	
-	var updateUserPreferences = exports.updateUserPreferences = function updateUserPreferences(preferences) {
-	  console.log('prefences', preferences);
-	  return {
-	    type: UPDATE_USER_PREFERENCES,
-	    preferences: preferences
 	  };
 	};
 	

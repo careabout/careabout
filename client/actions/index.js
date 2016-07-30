@@ -28,16 +28,9 @@ export const getPreferences = (id) => {
     request
       .get(preferencesUrl)
       .end((err, res) => {
-        dispatch(updateUserPreferences(res.body))
+        var result = ["Fisheries"]
+        dispatch(populatePreferences(result))
       })
-  }
-}
-
-export const updateUserPreferences = (preferences) => {
-  console.log('prefences', preferences)
-  return {
-    type: UPDATE_USER_PREFERENCES,
-    preferences: preferences
   }
 }
 
