@@ -8,7 +8,7 @@ module.exports = {
 }
 
 function process (req, res, next) {
-  req.body = 'PROCESS'
+  req.body = processAll(req.body.consultations)
   next()
 }
 
