@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 export default (props) => {
   return (
     <div>
-    <footer>
+    <footer className="container">
         <div className="row">
             <div className="col-lg-12">
 

@@ -10,10 +10,8 @@ export default React.createClass({
     return (
       <div>
         <Nav />
-        <div className="container">
             {this.props.children}
         <Footer />
-        </div>
       </div>
     )
   }
