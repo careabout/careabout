@@ -2,7 +2,7 @@ import React from 'react'
 
 export default (props) => {
   return (
-    <div className="container">
+      <div>
       <div className="jumbotron" className="tickerParent">
         <div className="container">
           <div id="ticker" className="row">
@@ -37,21 +37,15 @@ export default (props) => {
                     <div className="row" id="homeDetails">
                       <div className="col-lg-12">
                         <p>Laws and plans are being created and changed all the time without the people of the nation even being aware.</p><p>There should be a way to be notified when something close to your heart is about to be decided. That is where our App comes in. Put in your topics of interest and when an issue around that topic comes up then you will be informed and then there is the opportunity to engage with government to mold the country and area that you live in.</p>
-                        <footer>
-                          <div className="row">
-                            <div className="col-lg-12">
-                              <ul className="list-unstyled">
-                                <li className="pull-right"><a href="#top">Back to top</a></li>
-                              </ul>
-                              <p><a href="/" rel="nofollow">View the repo</a> on GitHub</p>
-                              <p><a href="https://github.com/careabout/careabout" rel="nofollow">Bootstrap</a> Theme by <a href="http://thomaspark.co/" rel="nofollow">Thomas Park</a></p>
-                              <p>Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
-                            </div>
-                          </div>
-                        </footer>
+
+
+
+
+
                       </div>
                     </div>
                   </div>
                 </div>
+
   )
 }

@@ -19,16 +19,16 @@ app.use(express.static(path.join(__dirname, 'static')))
 app.use('/', index)
 app.use('/v1/subscriptions', subscriptions)
 app.use('/decisions', decisions)
-
-mongoose.connect(process.env.MONGODB_URI)
-mongoose.Promise = global.Promise
-mongoose.connection.on('error', (err) => {
-  //console.error('CONNECTION ERROR')
-  res.status(500).send('COULD NOT CONNECT TO DB')
-})
-mongoose.connection.on('open', () => {
-  console.log('CONNECTED')
-})
+//
+//mongoose.connect(process.env.MONGODB_URI)
+//mongoose.Promise = global.Promise
+//mongoose.connection.on('error', (err) => {
+//  //console.error('CONNECTION ERROR')
+//  res.status(500).send('COULD NOT CONNECT TO DB')
+//})
+//mongoose.connection.on('open', () => {
+//  console.log('CONNECTED')
+//})
 
 app.listen(PORT, function () {
   console.log('Listening on port', PORT)
