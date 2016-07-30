@@ -72,11 +72,11 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
-	var _Decisions = __webpack_require__(267);
+	var _Decisions = __webpack_require__(269);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _reducers = __webpack_require__(275);
+	var _reducers = __webpack_require__(267);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -29441,13 +29441,62 @@
 	  value: true
 	});
 	
+	var _redux = __webpack_require__(183);
+	
+	var _reactRouterRedux = __webpack_require__(199);
+	
+	var _decisions = __webpack_require__(268);
+	
+	var _decisions2 = _interopRequireDefault(_decisions);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _redux.combineReducers)({
+	  routing: _reactRouterRedux.routerReducer,
+	  decisions: _decisions2.default
+	});
+
+/***/ },
+/* 268 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = deck;
+	var initialState = [];
+	
+	function deck() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'POPULATE_DECISIONS':
+	      return state;
+	    default:
+	      return state;
+	  }
+	}
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
 	var _reactRedux = __webpack_require__(176);
 	
-	var _Decisions = __webpack_require__(268);
+	var _Decisions = __webpack_require__(270);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29468,7 +29517,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Decisions2.default);
 
 /***/ },
-/* 268 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29503,7 +29552,7 @@
 	};
 
 /***/ },
-/* 269 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29513,7 +29562,7 @@
 	});
 	exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.populateDecisions = exports.getDecisions = undefined;
 	
-	var _superagent = __webpack_require__(270);
+	var _superagent = __webpack_require__(272);
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
@@ -29539,7 +29588,7 @@
 	var POPULATE_DECISIONS = exports.POPULATE_DECISIONS = 'POPULATE_DECISIONS';
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29561,9 +29610,9 @@
 	  root = undefined;
 	}
 	
-	var Emitter = __webpack_require__(271);
-	var requestBase = __webpack_require__(272);
-	var isObject = __webpack_require__(273);
+	var Emitter = __webpack_require__(273);
+	var requestBase = __webpack_require__(274);
+	var isObject = __webpack_require__(275);
 	
 	/**
 	 * Noop.
@@ -29575,7 +29624,7 @@
 	 * Expose `request`.
 	 */
 	
-	var request = module.exports = __webpack_require__(274).bind(null, Request);
+	var request = module.exports = __webpack_require__(276).bind(null, Request);
 	
 	/**
 	 * Determine XHR.
@@ -30525,7 +30574,7 @@
 	};
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30689,7 +30738,7 @@
 	};
 
 /***/ },
-/* 272 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30697,7 +30746,7 @@
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(273);
+	var isObject = __webpack_require__(275);
 	
 	/**
 	 * Clear previous timeout.
@@ -31040,7 +31089,7 @@
 	};
 
 /***/ },
-/* 273 */
+/* 275 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31062,7 +31111,7 @@
 	module.exports = isObject;
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31100,6 +31149,7 @@
 	
 	module.exports = request;
 
+<<<<<<< HEAD
 /***/ },
 /* 275 */
 /***/ function(module, exports, __webpack_require__) {
@@ -31182,6 +31232,8 @@
 	  );
 	};
 
+=======
+>>>>>>> origin/navui
 /***/ }
 /******/ ]);
 //# sourceMappingURL=bundle.js.map
