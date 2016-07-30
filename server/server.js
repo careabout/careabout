@@ -4,6 +4,7 @@ var path = require('path')
 require('dotenv').config()
 
 var index = require('./routes/index')
+var decisions = require('./routes/decisions')
 
 var subscriptions = require('./routes/subscription')
 var decisions = require('./routes/decisions')

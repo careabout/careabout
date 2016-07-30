@@ -1,10 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router'
+
+import Landing from './Landing'
+import Nav from './Nav'
 
 export default React.createClass({
   render () {
     return (
       <div>
-        <h1>Careabout</h1>
+        <Nav />
+        {this.props.children}
       </div>
     )
   }

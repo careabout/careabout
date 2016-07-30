@@ -8,7 +8,8 @@
     "watch": "webpack --watch",
     "start": "node server/server.js",
     "server": "node-inspector --web-port 8888 & nodemon --debug server/server",
-    "test:workers": "tape tests/worker/**/*.test.js | tap-spec"
+    "test:workers": "tape tests/worker/**/*.test.js | tap-spec",
+    "test:server": "tape tests/server/processors/**/*.test.js | tap-spec"
   },
   "babel": {
     "presets": [
@@ -47,6 +48,10 @@
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.5.1",
+    "react-router-redux": "^4.0.5",
+    "redux-thunk": "^2.1.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.0",
     "webpack": "^1.13.1",
