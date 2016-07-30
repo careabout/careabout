@@ -13,7 +13,10 @@ function process (req, res, next) {
 }
 
 function processAll (consultations) {
-  return consultations.map(createDecision)
+  if (consultations) {
+    return consultations.map(createDecision)
+  }
+  return {}
 }
 
 function createDecision (consultation) {

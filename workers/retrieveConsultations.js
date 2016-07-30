@@ -1,7 +1,8 @@
 var request = require('superagent')
 
 module.exports = {
-  getConsultations: getConsultations
+  getConsultations: getConsultations,
+  postConsultations: postConsultations
 }
 
 function getConsultations () {
@@ -14,9 +15,27 @@ function getConsultations () {
       console.log(`${res.body.query.total} CONSULTATIONS FOUND.`)
       return Promise.resolve(res)
     }, (err) => {
-      console.error(`CONSULTATION RETRIEVAL FAILED: ${err.message}.`)
+      return Promise.reject(err)
+    })
+}
+
+function postConsultations (consultations) {
+  console.log('WORKER POSTING TO DECISIONS API...')
+  return request('POST', 'http://localhost:3000/decisions')
+    .then(res => {
+      return Promise.resolve(res)
+    }, err => {
       return Promise.reject(err)
     })
 }
 
 getConsultations()
+  .then((consultations) => {
+    postConsultations(consultations)
+  })
+  .then((result) => {
+    console.log('WORKER SUCCESSFULLY POSTED TO /decisions')
+  })
+  .catch((err) => {
+    console.error(`CONSULTATION RETRIEVAL FAILED: ${err.message}.`)
+  })

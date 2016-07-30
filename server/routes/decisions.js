@@ -6,7 +6,7 @@ var consultation = require('../processors/consultation')
 router.post('/', consultation.process)
 
 router.post('/', (req, res) => {
-  res.send(req.body)
+  res.sendStatus(201)
 })
 
 router.get('/', function (req, res) {
