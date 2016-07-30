@@ -76,7 +76,7 @@
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _Preferences = __webpack_require__(278);
+	var _Preferences = __webpack_require__(282);
 	
 	var _Preferences2 = _interopRequireDefault(_Preferences);
 	
@@ -93,6 +93,7 @@
 	}));
 	
 	store.dispatch((0, _actions.getDecisions)());
+	store.dispatch((0, _actions.getPreferences)());
 	
 	var history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.hashHistory, store);
 	
@@ -29500,7 +29501,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.populateDecisions = exports.getDecisions = undefined;
+	exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = undefined;
 	
 	var _superagent = __webpack_require__(270);
 	
@@ -29517,6 +29518,20 @@
 	  };
 	};
 	
+	var getPreferences = exports.getPreferences = function getPreferences() {
+	  return function (dispatch) {
+	    var preferencesData = ['a', 'd'];
+	    dispatch(populatePreferences(preferencesData));
+	  };
+	};
+	
+	var populatePreferences = exports.populatePreferences = function populatePreferences(preferences) {
+	  return {
+	    type: POPULATE_PREFERENCES,
+	    preferences: preferences
+	  };
+	};
+	
 	var populateDecisions = exports.populateDecisions = function populateDecisions(payload) {
 	  return {
 	    type: POPULATE_DECISIONS,
@@ -29526,8 +29541,19 @@
 	  };
 	};
 	
+	var updatePreference = exports.updatePreference = function updatePreference(preference) {
+	  return {
+	    type: UPDATE_PREFERENCE,
+	    preference: preference
+	  };
+	};
+	
 	var GET_DECISIONS = exports.GET_DECISIONS = 'GET_DECISIONS';
 	var POPULATE_DECISIONS = exports.POPULATE_DECISIONS = 'POPULATE_DECISIONS';
+	var GET_PREFERENCES = exports.GET_PREFERENCES = 'GET_PREFERENCES';
+	var POPULATE_PREFERENCES = exports.POPULATE_PREFERENCES = 'POPULATE_PREFERENCES';
+	var UPDATE_PREFERENCE = exports.UPDATE_PREFERENCE = 'UPDATE_PREFERENCE';
+	var SAVE_PREFERENCES = exports.SAVE_PREFERENCES = 'SAVE_PREFERENCES';
 
 /***/ },
 /* 270 */
@@ -31117,13 +31143,18 @@
 	
 	var _locations2 = _interopRequireDefault(_locations);
 	
+	var _preferences = __webpack_require__(283);
+	
+	var _preferences2 = _interopRequireDefault(_preferences);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = (0, _redux.combineReducers)({
 	  routing: _reactRouterRedux.routerReducer,
 	  decisions: _decisions2.default,
 	  topics: _topics2.default,
-	  locations: _locations2.default
+	  locations: _locations2.default,
+	  preferences: _preferences2.default
 	});
 
 /***/ },
@@ -31135,13 +31166,12 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = deck;
 	
 	var _actions = __webpack_require__(269);
 	
 	var initialState = [];
 	
-	function deck() {
+	exports.default = function () {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
 	  var action = arguments[1];
 	
@@ -31151,7 +31181,7 @@
 	    default:
 	      return state;
 	  }
-	}
+	};
 
 /***/ },
 /* 277 */
@@ -31221,33 +31251,120 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (props) {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Preferences'
-	    ),
-	    _react2.default.createElement(
-	      'h2',
-	      null,
-	      'Topics'
-	    ),
-	    _react2.default.createElement(
-	      'h2',
-	      null,
-	      'Locations'
-	    )
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Preferences = function (_React$Component) {
+	  _inherits(Preferences, _React$Component);
+	
+	  function Preferences(props) {
+	    _classCallCheck(this, Preferences);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Preferences).call(this, props));
+	  }
+	
+	  _createClass(Preferences, [{
+	    key: 'updatePreferences',
+	    value: function updatePreferences(evt) {
+	      console.log(evt);
+	    }
+	  }, {
+	    key: 'saveChanges',
+	    value: function saveChanges(evt) {
+	      console.log(evt);
+	    }
+	  }, {
+	    key: 'setCheckbox',
+	    value: function setCheckbox(topic) {
+	      var checkBox = false;
+	      this.props.preferences.map(function (preference) {
+	        if (preference === topic) {
+	          checkBox = true;
+	        }
+	      });
+	      return checkBox;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Preferences'
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Topics'
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          this.props.topics.map(function (topic, i) {
+	            return _react2.default.createElement(
+	              'li',
+	              { key: i },
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                topic
+	              ),
+	              ' ',
+	              _react2.default.createElement('input', { type: 'checkbox', name: topic, value: topic, onChange: _this2.updatePreferences, checked: _this2.setCheckbox(topic) })
+	            );
+	          })
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Locations'
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          this.props.locations.map(function (location, i) {
+	            return _react2.default.createElement(
+	              'li',
+	              { key: i },
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                location
+	              ),
+	              ' ',
+	              _react2.default.createElement('input', { type: 'checkbox', name: location, value: location, onChange: _this2.updatePreferences, checked: _this2.setCheckbox(location) })
+	            );
+	          })
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.saveChanges },
+	          'Save Changes'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Preferences;
+	}(_react2.default.Component);
+	
+	exports.default = Preferences;
 
 /***/ },
 /* 279 */
@@ -31330,13 +31447,12 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = deck;
 	
 	var _actions = __webpack_require__(269);
 	
 	var initialState = [];
 	
-	function deck() {
+	exports.default = function () {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
 	  var action = arguments[1];
 	
@@ -31346,7 +31462,7 @@
 	    default:
 	      return state;
 	  }
-	}
+	};
 
 /***/ },
 /* 281 */
@@ -31357,13 +31473,12 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = deck;
 	
 	var _actions = __webpack_require__(269);
 	
 	var initialState = [];
 	
-	function deck() {
+	exports.default = function () {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
 	  var action = arguments[1];
 	
@@ -31373,7 +31488,62 @@
 	    default:
 	      return state;
 	  }
-	}
+	};
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(176);
+	
+	var _Preferences = __webpack_require__(278);
+	
+	var _Preferences2 = _interopRequireDefault(_Preferences);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    topics: state.topics,
+	    locations: state.locations,
+	    preferences: state.preferences.current,
+	    temporary: state.preferences.temporary
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_Preferences2.default);
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _actions = __webpack_require__(269);
+	
+	var initialState = { current: [], temporary: [] };
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _actions.POPULATE_PREFERENCES:
+	      return Object.assign({}, state, { current: action.preferences });
+	    default:
+	      return state;
+	  }
+	};
 
 /***/ }
 /******/ ]);

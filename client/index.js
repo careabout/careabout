@@ -9,10 +9,10 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import App from './components/App'
 import Landing from './components/Landing'
 import Decisions from './containers/Decisions'
-import Preferences from './components/Preferences'
+import Preferences from './containers/Preferences'
 
 import reducer from './reducers'
-import { getDecisions } from './actions'
+import { getDecisions, getPreferences } from './actions'
 
 let store = createStore(
   reducer, compose(
@@ -21,6 +21,7 @@ let store = createStore(
   ))
 
 store.dispatch(getDecisions())
+store.dispatch(getPreferences())
 
 const history = syncHistoryWithStore(hashHistory, store)
 

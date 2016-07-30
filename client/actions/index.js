@@ -11,6 +11,20 @@ export const getDecisions = () => {
   }
 }
 
+export const getPreferences = () => {
+  return dispatch => {
+    var preferencesData = ['a','d']
+    dispatch(populatePreferences(preferencesData))
+  }
+}
+
+export const populatePreferences = (preferences) => {
+  return {
+    type: POPULATE_PREFERENCES,
+    preferences: preferences
+  }
+}
+
 export const populateDecisions = (payload) => {
   return {
     type: POPULATE_DECISIONS,
@@ -20,5 +34,16 @@ export const populateDecisions = (payload) => {
   }
 }
 
+export const updatePreference = (preference) => {
+  return {
+    type: UPDATE_PREFERENCE,
+    preference: preference
+  }
+}
+
 export const GET_DECISIONS = 'GET_DECISIONS'
 export const POPULATE_DECISIONS = 'POPULATE_DECISIONS'
+export const GET_PREFERENCES = 'GET_PREFERENCES'
+export const POPULATE_PREFERENCES = 'POPULATE_PREFERENCES'
+export const UPDATE_PREFERENCE = 'UPDATE_PREFERENCE'
+export const SAVE_PREFERENCES = 'SAVE_PREFERENCES'
