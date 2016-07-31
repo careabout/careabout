@@ -100,9 +100,6 @@
 	store.dispatch((0, _actions.checkRegistered)());
 	store.dispatch((0, _actions.monitorRegistered)());
 	
-	var OneSignal = OneSignal || [];
-	console.log(OneSignal);
-	
 	var history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.hashHistory, store);
 	
 	document.addEventListener('DOMContentLoaded', function () {
@@ -31824,10 +31821,11 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var mapStateToProps = function mapStateToProps(state, ownProps) {
+	  var decision = state.decisions.filter(function (decision) {
+	    return ownProps.params.id === decision['_id'];
+	  })[0];
 	  return {
-	    decision: state.decisions.filter(function (decision) {
-	      return Number(ownProps.params.id) === decision._id;
-	    })[0]
+	    decision: decision
 	  };
 	};
 	
@@ -31863,13 +31861,13 @@
 	          _react2.default.createElement(
 	            "div",
 	            { className: "page-header" },
-	            props.decision.topic.map(function (t, i) {
+	            props.decision.topics.map(function (t, i) {
 	              return _react2.default.createElement(
 	                "p",
 	                { key: i },
 	                t,
 	                ", ",
-	                props.decision.location[i]
+	                props.decision.locations[i]
 	              );
 	            }),
 	            _react2.default.createElement(
