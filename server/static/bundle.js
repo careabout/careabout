@@ -72,23 +72,23 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
-	var _Decisions = __webpack_require__(267);
+	var _Decisions = __webpack_require__(268);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _Preferences = __webpack_require__(282);
+	var _Preferences = __webpack_require__(277);
 	
 	var _Preferences2 = _interopRequireDefault(_Preferences);
 	
-	var _DecisionDetails = __webpack_require__(284);
+	var _DecisionDetails = __webpack_require__(281);
 	
 	var _DecisionDetails2 = _interopRequireDefault(_DecisionDetails);
 	
-	var _reducers = __webpack_require__(275);
+	var _reducers = __webpack_require__(283);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29377,7 +29377,7 @@
 	
 	var _Landing2 = _interopRequireDefault(_Landing);
 	
-	var _Nav = __webpack_require__(279);
+	var _Nav = __webpack_require__(267);
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
 	
@@ -29416,16 +29416,16 @@
 	exports.default = function (props) {
 	  return _react2.default.createElement(
 	    "div",
-	    { className: "container" },
+	    null,
 	    _react2.default.createElement(
 	      "div",
 	      _defineProperty({ className: "jumbotron" }, "className", "tickerParent"),
 	      _react2.default.createElement(
 	        "div",
-	        { className: "container" },
+	        { id: "ticker", className: "row" },
 	        _react2.default.createElement(
 	          "div",
-	          { id: "ticker", className: "row" },
+	          { className: "container" },
 	          _react2.default.createElement(
 	            "div",
 	            { id: "text" },
@@ -29498,7 +29498,11 @@
 	              )
 	            )
 	          )
-	        ),
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "container" },
 	        _react2.default.createElement(
 	          "div",
 	          { className: "row" },
@@ -29516,7 +29520,11 @@
 	            )
 	          )
 	        )
-	      ),
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "container" },
 	      _react2.default.createElement(
 	        "div",
 	        { className: "row", id: "homeDetails" },
@@ -29616,13 +29624,81 @@
 	  value: true
 	});
 	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(204);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'navbar navbar-default navbar-fixed-top' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'navbar-header' },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/' },
+	            _react2.default.createElement('img', { src: 'care_about_logo.png', style: { maxHeight: '35px', width: 'auto', marginTop: '13px' } })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'navbar-collapse collapse', id: 'navbar-main' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'nav navbar-nav navbar-right' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: 'decisions' },
+	                'Decisions'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: 'preferences' },
+	                'Preferences'
+	              )
+	            )
+	          )
+	        )
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
 	var _reactRedux = __webpack_require__(176);
 	
-	var _Decisions = __webpack_require__(268);
+	var _Decisions = __webpack_require__(269);
 	
 	var _Decisions2 = _interopRequireDefault(_Decisions);
 	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29643,7 +29719,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Decisions2.default);
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29658,7 +29734,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Decision = __webpack_require__(277);
+	var _Decision = __webpack_require__(270);
 	
 	var _Decision2 = _interopRequireDefault(_Decision);
 	
@@ -29706,7 +29782,63 @@
 	};
 
 /***/ },
-/* 269 */
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(204);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'modal-dialog' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'modal-content' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-header' },
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
+	          '×'
+	        ),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: 'decision/' + props.id },
+	          _react2.default.createElement(
+	            'h3',
+	            { className: 'modal-title' },
+	            props.title
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-body' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          props.description
+	        )
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29716,7 +29848,7 @@
 	});
 	exports.unsubscribe = exports.subscribe = exports.updateRegistrationStatus = exports.populateUserId = exports.getUserId = exports.monitorRegistered = exports.checkRegistered = exports.savePreferences = exports.updatePreference = exports.populateDecisions = exports.populatePreferences = exports.getPreferences = exports.getDecisions = exports.UPDATE_USER_PREFERENCES = exports.UPDATE_USER_ID = exports.UPDATE_REGISTRATION_STATUS = exports.SAVE_PREFERENCES = exports.UPDATE_PREFERENCE = exports.POPULATE_PREFERENCES = exports.GET_PREFERENCES = exports.POPULATE_DECISIONS = exports.GET_DECISIONS = exports.SUBSCRIBE = undefined;
 	
-	var _superagent = __webpack_require__(270);
+	var _superagent = __webpack_require__(272);
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
@@ -29737,7 +29869,7 @@
 	
 	var getDecisions = exports.getDecisions = function getDecisions() {
 	  return function (dispatch) {
-	    _superagent2.default.get('/decisions').end(function (err, res) {
+	    _superagent2.default.get('/v1/decisions').end(function (err, res) {
 	      var payload = JSON.parse(res.text);
 	      dispatch(populateDecisions(payload));
 	    });
@@ -29853,7 +29985,7 @@
 	};
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29875,9 +30007,9 @@
 	  root = undefined;
 	}
 	
-	var Emitter = __webpack_require__(271);
-	var requestBase = __webpack_require__(272);
-	var isObject = __webpack_require__(273);
+	var Emitter = __webpack_require__(273);
+	var requestBase = __webpack_require__(274);
+	var isObject = __webpack_require__(275);
 	
 	/**
 	 * Noop.
@@ -29889,7 +30021,7 @@
 	 * Expose `request`.
 	 */
 	
-	var request = module.exports = __webpack_require__(274).bind(null, Request);
+	var request = module.exports = __webpack_require__(276).bind(null, Request);
 	
 	/**
 	 * Determine XHR.
@@ -30839,7 +30971,7 @@
 	};
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31003,7 +31135,7 @@
 	};
 
 /***/ },
-/* 272 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31011,7 +31143,7 @@
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(273);
+	var isObject = __webpack_require__(275);
 	
 	/**
 	 * Clear previous timeout.
@@ -31354,7 +31486,7 @@
 	};
 
 /***/ },
-/* 273 */
+/* 275 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31376,7 +31508,7 @@
 	module.exports = isObject;
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31415,77 +31547,6 @@
 	module.exports = request;
 
 /***/ },
-/* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _redux = __webpack_require__(183);
-	
-	var _reactRouterRedux = __webpack_require__(199);
-	
-	var _decisions = __webpack_require__(276);
-	
-	var _decisions2 = _interopRequireDefault(_decisions);
-	
-	var _topics = __webpack_require__(280);
-	
-	var _topics2 = _interopRequireDefault(_topics);
-	
-	var _locations = __webpack_require__(281);
-	
-	var _locations2 = _interopRequireDefault(_locations);
-	
-	var _preferences = __webpack_require__(283);
-	
-	var _preferences2 = _interopRequireDefault(_preferences);
-	
-	var _notifications = __webpack_require__(288);
-	
-	var _notifications2 = _interopRequireDefault(_notifications);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _redux.combineReducers)({
-	  routing: _reactRouterRedux.routerReducer,
-	  decisions: _decisions2.default,
-	  topics: _topics2.default,
-	  locations: _locations2.default,
-	  preferences: _preferences2.default,
-	  notifications: _notifications2.default
-	});
-
-/***/ },
-/* 276 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _actions = __webpack_require__(269);
-	
-	var initialState = [];
-	
-	exports.default = function () {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case _actions.POPULATE_DECISIONS:
-	      return action.decisions;
-	    default:
-	      return state;
-	  }
-	};
-
-/***/ },
 /* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31495,51 +31556,45 @@
 	  value: true
 	});
 	
-	var _react = __webpack_require__(1);
+	var _reactRedux = __webpack_require__(176);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var _Preferences = __webpack_require__(278);
 	
-	var _reactRouter = __webpack_require__(204);
+	var _Preferences2 = _interopRequireDefault(_Preferences);
+	
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'modal-dialog' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'modal-content' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'modal-header' },
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
-	          '×'
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'decision/' + props.id },
-	          _react2.default.createElement(
-	            'h3',
-	            { className: 'modal-title' },
-	            props.title
-	          )
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'modal-body' },
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          props.description
-	        )
-	      )
-	    )
-	  );
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    topics: state.topics,
+	    locations: state.locations,
+	    preferences: state.preferences,
+	    isSubscribed: state.notifications.isSubscribed,
+	    id: state.notifications.id,
+	    hasPreferences: state.notifications.hasPreferences
+	  };
 	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    updatePreference: function updatePreference(preference) {
+	      dispatch((0, _actions.updatePreference)(preference));
+	    },
+	    savePreferences: function savePreferences(preferences, id, hasPreferences) {
+	      dispatch((0, _actions.savePreferences)(preferences, id, hasPreferences));
+	    },
+	    subscribe: function subscribe() {
+	      dispatch((0, _actions.subscribe)());
+	    },
+	    unsubscribe: function unsubscribe() {
+	      dispatch((0, _actions.unsubscribe)());
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Preferences2.default);
 
 /***/ },
 /* 278 */
@@ -31555,7 +31610,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Preference = __webpack_require__(286);
+	var _Preference = __webpack_require__(279);
 	
 	var _Preference2 = _interopRequireDefault(_Preference);
 	
@@ -31654,63 +31709,34 @@
 	  value: true
 	});
 	
-	var _react = __webpack_require__(1);
+	var _reactRedux = __webpack_require__(176);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var _Preference = __webpack_require__(280);
 	
-	var _reactRouter = __webpack_require__(204);
+	var _Preference2 = _interopRequireDefault(_Preference);
+	
+	var _actions = __webpack_require__(271);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (props) {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'navbar navbar-default navbar-fixed-top' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'navbar-header' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/' },
-	            _react2.default.createElement('img', { src: 'care_about_logo.png', style: { maxHeight: '35px', width: 'auto' } })
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'navbar-collapse collapse', id: 'navbar-main' },
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'nav navbar-nav navbar-right' },
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: 'decisions' },
-	                'Decisions'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: 'preferences' },
-	                'Preferences'
-	              )
-	            )
-	          )
-	        )
-	      )
-	    )
-	  );
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    preferences: state.preferences
+	  };
 	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    updatePreference: function updatePreference(preference) {
+	      dispatch((0, _actions.updatePreference)(preference));
+	    },
+	    savePreferences: function savePreferences() {
+	      dispatch((0, _actions.savePreferences)());
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Preference2.default);
 
 /***/ },
 /* 280 */
@@ -31722,21 +31748,62 @@
 	  value: true
 	});
 	
-	var _actions = __webpack_require__(269);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var initialState = [];
+	var _react = __webpack_require__(1);
 	
-	exports.default = function () {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
-	  var action = arguments[1];
+	var _react2 = _interopRequireDefault(_react);
 	
-	  switch (action.type) {
-	    case _actions.POPULATE_DECISIONS:
-	      return action.topics;
-	    default:
-	      return state;
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Preference = function (_React$Component) {
+	  _inherits(Preference, _React$Component);
+	
+	  function Preference() {
+	    _classCallCheck(this, Preference);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Preference).apply(this, arguments));
 	  }
-	};
+	
+	  _createClass(Preference, [{
+	    key: 'setCheckbox',
+	    value: function setCheckbox(topic) {
+	      return this.props.preferences.filter(function (preference) {
+	        return preference === topic;
+	      }).length > 0;
+	    }
+	  }, {
+	    key: 'updatePreferences',
+	    value: function updatePreferences(evt) {
+	      this.props.updatePreference({ value: evt.target.value, checked: evt.target.checked });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var topic = this.props.topic;
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'checkbox' },
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          _react2.default.createElement('input', { type: 'checkbox', name: topic, value: topic, onChange: this.updatePreferences.bind(this), checked: this.setCheckbox(topic) }),
+	          topic
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Preference;
+	}(_react2.default.Component);
+	
+	exports.default = Preference;
 
 /***/ },
 /* 281 */
@@ -31748,120 +31815,9 @@
 	  value: true
 	});
 	
-	var _actions = __webpack_require__(269);
-	
-	var initialState = [];
-	
-	exports.default = function () {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case _actions.POPULATE_DECISIONS:
-	      return action.locations;
-	    default:
-	      return state;
-	  }
-	};
-
-/***/ },
-/* 282 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
 	var _reactRedux = __webpack_require__(176);
 	
-	var _Preferences = __webpack_require__(278);
-	
-	var _Preferences2 = _interopRequireDefault(_Preferences);
-	
-	var _actions = __webpack_require__(269);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    topics: state.topics,
-	    locations: state.locations,
-	    preferences: state.preferences,
-	    isSubscribed: state.notifications.isSubscribed,
-	    id: state.notifications.id,
-	    hasPreferences: state.notifications.hasPreferences
-	  };
-	};
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    updatePreference: function updatePreference(preference) {
-	      dispatch((0, _actions.updatePreference)(preference));
-	    },
-	    savePreferences: function savePreferences(preferences, id, hasPreferences) {
-	      dispatch((0, _actions.savePreferences)(preferences, id, hasPreferences));
-	    },
-	    subscribe: function subscribe() {
-	      dispatch((0, _actions.subscribe)());
-	    },
-	    unsubscribe: function unsubscribe() {
-	      dispatch((0, _actions.unsubscribe)());
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Preferences2.default);
-
-/***/ },
-/* 283 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _actions = __webpack_require__(269);
-	
-	var initialState = [];
-	
-	exports.default = function () {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case _actions.POPULATE_PREFERENCES:
-	      return action.preferences;
-	    case _actions.UPDATE_PREFERENCE:
-	      if (action.checked) {
-	        return state.concat(action.preference);
-	      } else {
-	        return state.filter(function (preference) {
-	          return action.preference !== preference;
-	        });
-	      }
-	      return state;
-	    default:
-	      return state;
-	  }
-	};
-
-/***/ },
-/* 284 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(176);
-	
-	var _DecisionDetails = __webpack_require__(285);
+	var _DecisionDetails = __webpack_require__(282);
 	
 	var _DecisionDetails2 = _interopRequireDefault(_DecisionDetails);
 	
@@ -31878,7 +31834,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_DecisionDetails2.default);
 
 /***/ },
-/* 285 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -31992,6 +31948,103 @@
 	};
 
 /***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _redux = __webpack_require__(183);
+	
+	var _reactRouterRedux = __webpack_require__(199);
+	
+	var _decisions = __webpack_require__(284);
+	
+	var _decisions2 = _interopRequireDefault(_decisions);
+	
+	var _topics = __webpack_require__(285);
+	
+	var _topics2 = _interopRequireDefault(_topics);
+	
+	var _locations = __webpack_require__(286);
+	
+	var _locations2 = _interopRequireDefault(_locations);
+	
+	var _preferences = __webpack_require__(287);
+	
+	var _preferences2 = _interopRequireDefault(_preferences);
+	
+	var _notifications = __webpack_require__(288);
+	
+	var _notifications2 = _interopRequireDefault(_notifications);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _redux.combineReducers)({
+	  routing: _reactRouterRedux.routerReducer,
+	  decisions: _decisions2.default,
+	  topics: _topics2.default,
+	  locations: _locations2.default,
+	  preferences: _preferences2.default,
+	  notifications: _notifications2.default
+	});
+
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _actions = __webpack_require__(271);
+	
+	var initialState = [];
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _actions.POPULATE_DECISIONS:
+	      return action.decisions;
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _actions = __webpack_require__(271);
+	
+	var initialState = [];
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _actions.POPULATE_DECISIONS:
+	      return action.topics;
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
 /* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -32001,34 +32054,21 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(176);
+	var _actions = __webpack_require__(271);
 	
-	var _Preference = __webpack_require__(287);
+	var initialState = [];
 	
-	var _Preference2 = _interopRequireDefault(_Preference);
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
 	
-	var _actions = __webpack_require__(269);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    preferences: state.preferences
-	  };
+	  switch (action.type) {
+	    case _actions.POPULATE_DECISIONS:
+	      return action.locations;
+	    default:
+	      return state;
+	  }
 	};
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    updatePreference: function updatePreference(preference) {
-	      dispatch((0, _actions.updatePreference)(preference));
-	    },
-	    savePreferences: function savePreferences() {
-	      dispatch((0, _actions.savePreferences)());
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Preference2.default);
 
 /***/ },
 /* 287 */
@@ -32040,62 +32080,30 @@
 	  value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _actions = __webpack_require__(271);
 	
-	var _react = __webpack_require__(1);
+	var initialState = [];
 	
-	var _react2 = _interopRequireDefault(_react);
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	  var action = arguments[1];
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Preference = function (_React$Component) {
-	  _inherits(Preference, _React$Component);
-	
-	  function Preference() {
-	    _classCallCheck(this, Preference);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Preference).apply(this, arguments));
+	  switch (action.type) {
+	    case _actions.POPULATE_PREFERENCES:
+	      return action.preferences;
+	    case _actions.UPDATE_PREFERENCE:
+	      if (action.checked) {
+	        return state.concat(action.preference);
+	      } else {
+	        return state.filter(function (preference) {
+	          return action.preference !== preference;
+	        });
+	      }
+	      return state;
+	    default:
+	      return state;
 	  }
-	
-	  _createClass(Preference, [{
-	    key: 'setCheckbox',
-	    value: function setCheckbox(topic) {
-	      return this.props.preferences.filter(function (preference) {
-	        return preference === topic;
-	      }).length > 0;
-	    }
-	  }, {
-	    key: 'updatePreferences',
-	    value: function updatePreferences(evt) {
-	      this.props.updatePreference({ value: evt.target.value, checked: evt.target.checked });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var topic = this.props.topic;
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'checkbox' },
-	        _react2.default.createElement(
-	          'label',
-	          null,
-	          _react2.default.createElement('input', { type: 'checkbox', name: topic, value: topic, onChange: this.updatePreferences.bind(this), checked: this.setCheckbox(topic) }),
-	          topic
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Preference;
-	}(_react2.default.Component);
-	
-	exports.default = Preference;
+	};
 
 /***/ },
 /* 288 */
@@ -32107,7 +32115,7 @@
 	  value: true
 	});
 	
-	var _actions = __webpack_require__(269);
+	var _actions = __webpack_require__(271);
 	
 	var initialState = {
 	  isSubscribed: false,
