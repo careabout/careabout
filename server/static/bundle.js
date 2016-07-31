@@ -29546,19 +29546,6 @@
 	                'div',
 	                { className: 'col-lg-12' },
 	                _react2.default.createElement(
-	                  'ul',
-	                  { className: 'list-unstyled' },
-	                  _react2.default.createElement(
-	                    'li',
-	                    { className: 'pull-right' },
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '#top' },
-	                      'Back to top'
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
 	                  'p',
 	                  null,
 	                  _react2.default.createElement(
@@ -29804,11 +29791,6 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'modal-header' },
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
-	          '×'
-	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: 'decision/' + props._id },
@@ -31855,6 +31837,8 @@
 	
 	exports.default = function (props) {
 	  if (props.decision) {
+	    var startDate = new Date(props.decision.start);
+	    var endDate = new Date(props.decision.end);
 	    return _react2.default.createElement(
 	      "div",
 	      { className: "container" },
@@ -31884,9 +31868,9 @@
 	            _react2.default.createElement(
 	              "p",
 	              { className: "text-primary" },
-	              props.decision.start,
+	              startDate.toLocaleDateString("en-NZ"),
 	              " - ",
-	              props.decision.end
+	              endDate.toLocaleDateString("en-NZ")
 	            ),
 	            _react2.default.createElement(
 	              "a",

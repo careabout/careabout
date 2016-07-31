@@ -6,7 +6,6 @@ export default (props) => {
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header">
-          <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
           <Link to={`decision/${props._id}`}>
             <h3 className="modal-title">{props.title}</h3>
           </Link>

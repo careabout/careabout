@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-  decisionStore.buildViewModel()
+  decisionStore.buildViewModel(req.query)
     .then(vm => {
       res.json({
         decisions: vm,
