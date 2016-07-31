@@ -29788,29 +29788,30 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (props) {
+	  var description = props.description.substring(0, 200) + '...';
 	  return _react2.default.createElement(
-	    'div',
-	    { className: 'modal-dialog' },
+	    _reactRouter.Link,
+	    { to: 'decision/' + props._id, className: 'nounderline' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'modal-content' },
+	      { className: 'modal-dialog' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'modal-header' },
+	        { className: 'modal-content' },
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'decision/' + props._id },
+	          'div',
+	          { className: 'modal-header' },
 	          _react2.default.createElement(
-	            'h3',
+	            'h4',
 	            { className: 'modal-title' },
 	            props.title
 	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'modal-body' },
+	          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: description } })
 	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'modal-body' },
-	        _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: props.description } })
 	      )
 	    )
 	  );
@@ -31862,7 +31863,7 @@
 	                "p",
 	                { key: i },
 	                t,
-	                ", ",
+	                " ",
 	                props.decision.locations[i]
 	              );
 	            }),
@@ -31874,14 +31875,8 @@
 	            _react2.default.createElement(
 	              "p",
 	              { className: "text-primary" },
-	              startDate.toLocaleDateString("en-NZ"),
-	              " - ",
+	              "Submissions Close: ",
 	              endDate.toLocaleDateString("en-NZ")
-	            ),
-	            _react2.default.createElement(
-	              "a",
-	              { href: props.decision.url, className: "btn btn-primary" },
-	              "Open"
 	            ),
 	            _react2.default.createElement(
 	              "div",
@@ -31903,14 +31898,18 @@
 	      _react2.default.createElement(
 	        "p",
 	        null,
-	        props.decision.organisation
+	        _react2.default.createElement(
+	          "strong",
+	          null,
+	          props.decision.organisation
+	        )
 	      ),
 	      _react2.default.createElement(
 	        "div",
 	        { className: "row" },
 	        _react2.default.createElement(
 	          "div",
-	          { className: "col-lg-6" },
+	          { className: "col-lg-12" },
 	          _react2.default.createElement(
 	            "div",
 	            { className: "bs-component" },
@@ -31922,7 +31921,7 @@
 	            _react2.default.createElement(
 	              "a",
 	              { href: props.decision.url, className: "btn btn-primary btn-lg btn-block" },
-	              "View More Info"
+	              "Go to submission website"
 	            )
 	          )
 	        )
