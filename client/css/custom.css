@@ -6,13 +6,13 @@ body {
     background-color: transparent;
 }
 
-#homeDetails {
+/*#homeDetails {
     background-color: #fff;
     min-height: 500px;
     position: absolute;
     top: 100vh;
     width: 82%;
-}
+}*/
 
 #socialIcons img {
     width 25px;
@@ -20,4 +20,14 @@ body {
 }
 #socialIcons {
     padding: 10px 0;
+}
+
+#ticker {
+  /*background-color: tomato;*/
+  margin-right: -40px;
+}
+
+.tickerParent {
+  width: 100%;
+  margin-left: 40px;
 }
