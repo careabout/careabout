@@ -29509,13 +29509,9 @@
 	            'div',
 	            { className: 'col-lg-12' },
 	            _react2.default.createElement(
-	              'button',
-	              { className: 'btn' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: 'preferences' },
-	                'Get Started »'
-	              )
+	              _reactRouter.Link,
+	              { className: 'btn btn-primary', to: 'preferences' },
+	              'Get Started »'
 	            )
 	          )
 	        )
@@ -29567,7 +29563,7 @@
 	                  null,
 	                  _react2.default.createElement(
 	                    'a',
-	                    { href: '/', rel: 'nofollow' },
+	                    { href: 'https://github.com/careabout/careabout', rel: 'nofollow' },
 	                    'View the repo'
 	                  ),
 	                  ' on GitHub'
@@ -29577,7 +29573,7 @@
 	                  null,
 	                  _react2.default.createElement(
 	                    'a',
-	                    { href: 'https://github.com/careabout/careabout', rel: 'nofollow' },
+	                    { href: 'http://getbootstrap.com/', rel: 'nofollow' },
 	                    'Bootstrap'
 	                  ),
 	                  ' Theme by ',
@@ -29671,7 +29667,7 @@
 	              _react2.default.createElement(
 	                _reactRouter.Link,
 	                { to: 'preferences' },
-	                'Preferences'
+	                'Subscribe / Preferences'
 	              )
 	            )
 	          )
@@ -31627,7 +31623,7 @@
 	          _react2.default.createElement(
 	            'h2',
 	            null,
-	            'Preferences'
+	            'Subscribe'
 	          )
 	        )
 	      )
@@ -31660,7 +31656,7 @@
 	              { className: 'btn btn-primary', onClick: function onClick() {
 	                  return props.savePreferences(props.preferences, props.id, props.hasPreferences);
 	                } },
-	              'Save Changes'
+	              'Save Preferences'
 	            ),
 	            ' '
 	          )
@@ -31672,7 +31668,7 @@
 	      { className: 'row' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'col-lg-6' },
+	        { className: 'col-lg-6 col-md-6' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'form-group' },
@@ -31688,7 +31684,7 @@
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'col-lg-6' },
+	        { className: 'col-lg-6 col-md-6' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'form-group' },
