@@ -29546,19 +29546,6 @@
 	                'div',
 	                { className: 'col-lg-12' },
 	                _react2.default.createElement(
-	                  'ul',
-	                  { className: 'list-unstyled' },
-	                  _react2.default.createElement(
-	                    'li',
-	                    { className: 'pull-right' },
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '#top' },
-	                      'Back to top'
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
 	                  'p',
 	                  null,
 	                  _react2.default.createElement(
