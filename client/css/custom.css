@@ -1,0 +1,23 @@
+.jumbotron {
+    background-color: transparent;
+}
+
+body {
+    background-color: transparent;
+}
+
+#homeDetails {
+    background-color: #fff;
+    min-height: 500px;
+    position: absolute;
+    top: 100vh;
+    width: 82%;
+}
+
+#socialIcons img {
+    width 25px;
+    height: 25px;
+}
+#socialIcons {
+    padding: 10px 0;
+}
