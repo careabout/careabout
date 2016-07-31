@@ -23,7 +23,7 @@ export default (props) => {
           <div className="row">
             <div className="col-lg-6">
             <div className="bs-component">
-              <p>{props.decision.description}</p>
+              <div dangerouslySetInnerHTML={{__html: props.decision.description}}/>
             </div>
 
               <p className="bs-component">
