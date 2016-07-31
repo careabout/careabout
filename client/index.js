@@ -25,9 +25,6 @@ store.dispatch(getDecisions())
 store.dispatch(checkRegistered())
 store.dispatch(monitorRegistered())
 
-var OneSignal = OneSignal || []
-console.log(OneSignal)
-
 const history = syncHistoryWithStore(hashHistory, store)
 
 document.addEventListener('DOMContentLoaded', () => {
