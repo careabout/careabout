@@ -11,9 +11,25 @@ module.exports = {
   updateDecision: updateDecision
 }
 
-function buildViewModel () {
+function buildViewModel (query) {
   const db = mongoose.connection
-  return Decision.find({}, (err, decisions) => {
+  let search = {}
+  if (query) {
+    if (query.hasOwnProperty('processed')) {
+      let processed = query.processed === 'true' ? true : false
+      if (processed === false) {
+        search = { 
+          $or: [
+            { processed: { $exists: false } },
+            { processed: false }
+          ]
+        }
+      } else {
+        search = { processed: true }
+      }
+    }
+  }
+  return Decision.find(search, (err, decisions) => {
     if (err) {
       return Promise.reject(err)
     }
