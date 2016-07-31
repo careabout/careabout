@@ -2,18 +2,19 @@ import React from 'react'
 import { Link } from 'react-router'
 
 export default (props) => {
+  var description = props.description.substring(0, 200) + '...'
   return (
-    <div className="modal-dialog">
-      <div className="modal-content">
-        <div className="modal-header">
-          <Link to={`decision/${props._id}`}>
-            <h3 className="modal-title">{props.title}</h3>
-          </Link>
-        </div>
-        <div className="modal-body">
-          <div dangerouslySetInnerHTML={{__html: props.description}}/>
+    <Link to={`decision/${props._id}`} className="nounderline">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h4 className="modal-title">{props.title}</h4>
+          </div>
+          <div className="modal-body">
+            <div dangerouslySetInnerHTML={{__html: description}}/>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
