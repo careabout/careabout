@@ -29816,7 +29816,7 @@
 	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: 'decision/' + props.id },
+	          { to: 'decision/' + props._id },
 	          _react2.default.createElement(
 	            'h3',
 	            { className: 'modal-title' },
@@ -31826,7 +31826,7 @@
 	var mapStateToProps = function mapStateToProps(state, ownProps) {
 	  return {
 	    decision: state.decisions.filter(function (decision) {
-	      return Number(ownProps.params.id) === decision.id;
+	      return Number(ownProps.params.id) === decision._id;
 	    })[0]
 	  };
 	};
