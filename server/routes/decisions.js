@@ -5,9 +5,6 @@ var consultation = require('../processors/consultation')
 var decisionStore = require('../decisionStore')
 
 router.post('/', consultation.process, decisionStore.saveBatch)
-router.get('process-error', (req, res) => {
-  res.status(400).send('Could not process consultations.')
-})
 
 router.get('/:id', (req, res) => {
   decisionStore.getDecision(req.params.id)
@@ -34,6 +31,26 @@ router.get('/', (req, res) => {
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR')
+    })
+})
+
+router.put('/:id', (req, res) => {
+  decisionStore.updateDecision(req.params.id, req.body)
+    .then(result => {
+      res.json(result)
+    })
+    .catch(err => {
+      res.status(500).send(`Could not update that decision. Database said: ${err.message}`)
+    })
+})
+
+router.put('/:id/processed', (req, res) => {
+  decisionStore.markAsProcessed(req.params.id)
+    .then(result => {
+      res.json(result)
+    })
+    .catch(err => {
+      res.status(500).send(`Could not update that decision. Database said: ${err.message}`)
     })
 })
 
