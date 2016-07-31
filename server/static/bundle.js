@@ -29865,7 +29865,7 @@
 	var UPDATE_USER_ID = exports.UPDATE_USER_ID = 'UPDATE_USER_ID';
 	var UPDATE_USER_PREFERENCES = exports.UPDATE_USER_PREFERENCES = 'UPDATE_USER_PREFERENCES';
 	
-	var preferencesUrl = 'http://careabout-notifications.herokuapp.com/v1/subscriptions/';
+	var preferencesUrl = 'https://careabout-notifications.herokuapp.com/v1/subscriptions/';
 	
 	var getDecisions = exports.getDecisions = function getDecisions() {
 	  return function (dispatch) {
