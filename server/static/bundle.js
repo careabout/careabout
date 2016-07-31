@@ -29416,7 +29416,7 @@
 	    null,
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'jumbotron jumbotron-fluid' },
+	      { className: 'jumbotron jumbotron-fluid main-jumbo' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'tickerParent' },
@@ -29509,11 +29509,15 @@
 	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-lg-12' },
+	            { className: 'container' },
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { className: 'btn btn-primary', to: 'preferences' },
-	              'Get Started »'
+	              'div',
+	              { className: 'col-lg-12' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: 'btn btn-primary', to: 'preferences' },
+	                'Get Started »'
+	              )
 	            )
 	          )
 	        )

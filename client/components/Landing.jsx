@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 export default (props) => {
   return (
     <div>
-      <div className="jumbotron jumbotron-fluid">
+      <div className="jumbotron jumbotron-fluid main-jumbo">
         <div className="tickerParent">
           <div id="ticker" className="row">
             <div className="container">
@@ -27,8 +27,10 @@ export default (props) => {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-lg-12">
-              <Link className="btn btn-primary" to="preferences">Get Started &raquo;</Link>
+            <div className="container">
+              <div className="col-lg-12">
+                <Link className="btn btn-primary" to="preferences">Get Started &raquo;</Link>
+              </div>
             </div>
           </div>
         </div>
