@@ -3,7 +3,7 @@ import DecisionDetails from '../components/DecisionDetails'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    decision: state.decisions.filter(decision => Number(ownProps.params.id) === decision._id)[0]
+    decision: state.decisions.filter(decision => ownProps.params.id === decision._id)[0]
   }
 }
 
