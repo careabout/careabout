@@ -1,16 +1,16 @@
-const test = require('tape')
+const mongoose = require('mongoose')
+const test = require('blue-tape')
 const decisionStore = require('../../server/decisionStore')
 
-test('buildViewModel returns an object with locations property', t => {
-  const expected = true
-  const actual = decisionStore.getDecisions().hasOwnProperty('locations')
-  t.equal(actual, expected)
-  t.end()
-})
+mongoose.connect(process.env.MONGODB_URI)
+mongoose.Promise = global.Promise
 
 test('getDecision returns an object with property _id', t => {
-  const expected = true
-  const actual = decisionStore.getDecision('').hasOwnProperty('_id')
-  t.equal(actual, expected)
-  t.end()
+  const expected = 'New listing of the threatened status of New Zealand vascular plants'
+  return decisionStore.getDecision('579d398e297518e81b23e224')
+    .then(decision => {
+      const actual = decision[0].title
+      t.equal(actual, expected)
+      mongoose.connection.close()
+    })
 })

@@ -1,8 +1,11 @@
 const mongoose = require('mongoose')
+const ObjectId = require('mongoose').Types.ObjectId
 const Decision = require('./models/Decision')
+
 
 module.exports = {
   buildViewModel: buildViewModel,
+  getDecision: getDecision,
   saveBatch: saveBatch
 }
 
@@ -13,6 +16,16 @@ function buildViewModel () {
       return Promise.reject(err)
     }
     Promise.resolve(decisions)
+  })
+}
+
+function getDecision (id) {
+  const db = mongoose.connection
+  return Decision.find({_id: id}, (err, decision) => {
+    if (err) {
+      return Promise.reject(err)
+    }
+    Promise.resolve(decision)
   })
 }
 
