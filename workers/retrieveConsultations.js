@@ -22,7 +22,7 @@ function getConsultations () {
 
 function postConsultations (consultations) {
   console.log('WORKER POSTING TO DECISIONS API...')
-  return request('POST', 'http://localhost:80/v1/decisions')
+  return request('POST', 'https://care-about.herokuapp.com/v1/decisions')
     .send(consultations)
     .then(res => {
       if (res.statusCode !== 201) {
