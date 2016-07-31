@@ -12,7 +12,7 @@ export default (props) => {
           </Link>
         </div>
         <div className="modal-body">
-          <p>{props.description}</p>
+          <div dangerouslySetInnerHTML={{__html: props.description}}/>
         </div>
       </div>
     </div>
