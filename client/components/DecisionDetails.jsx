@@ -7,7 +7,7 @@ export default (props) => {
       <div className="row">
           <div className="col-lg-12">
               <div className="page-header">
-                {props.decision.topic.map((t, i) => <p key={i}>{t}, {props.decision.location[i]}</p>)}
+                {props.decision.topics.map((t, i) => <p key={i}>{t}, {props.decision.locations[i]}</p>)}
                   <h1 id="typography">{props.decision.title}</h1>
                 <p className="text-primary">{props.decision.start} - {props.decision.end}</p>
                 <a href={props.decision.url} className="btn btn-primary">Open</a>
