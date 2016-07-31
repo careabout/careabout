@@ -2,7 +2,6 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var path = require('path')
 var mongoose = require('mongoose')
-require('dotenv').config()
 
 var index = require('./routes/index')
 var decisions = require('./routes/decisions')
