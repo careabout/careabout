@@ -29396,7 +29396,7 @@
 /* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -29406,91 +29406,93 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(204);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
-	    "div",
+	    'div',
 	    null,
 	    _react2.default.createElement(
-	      "div",
-	      _defineProperty({ className: "jumbotron" }, "className", "tickerParent"),
+	      'div',
+	      _defineProperty({ className: 'jumbotron' }, 'className', 'tickerParent'),
 	      _react2.default.createElement(
-	        "div",
-	        { id: "ticker", className: "row" },
+	        'div',
+	        { id: 'ticker', className: 'row' },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "container" },
+	          'div',
+	          { className: 'container' },
 	          _react2.default.createElement(
-	            "div",
-	            { id: "text" },
+	            'div',
+	            { id: 'text' },
 	            _react2.default.createElement(
-	              "h1",
-	              { className: "gray" },
-	              "Care about"
+	              'h1',
+	              { className: 'gray' },
+	              'Care about'
 	            )
 	          ),
-	          _react2.default.createElement("div", { id: "first" }),
+	          _react2.default.createElement('div', { id: 'first' }),
 	          _react2.default.createElement(
-	            "div",
-	            { id: "second" },
+	            'div',
+	            { id: 'second' },
 	            _react2.default.createElement(
-	              "ul",
+	              'ul',
 	              null,
 	              _react2.default.createElement(
-	                "li",
+	                'li',
 	                null,
 	                _react2.default.createElement(
-	                  "h1",
-	                  { className: "lightergray" },
-	                  "New Zealand"
+	                  'h1',
+	                  { className: 'lightergray' },
+	                  'New Zealand'
 	                )
 	              ),
 	              _react2.default.createElement(
-	                "li",
+	                'li',
 	                null,
 	                _react2.default.createElement(
-	                  "h1",
-	                  { className: "lightergray" },
-	                  "buildings"
+	                  'h1',
+	                  { className: 'lightergray' },
+	                  'buildings'
 	                )
 	              ),
 	              _react2.default.createElement(
-	                "li",
+	                'li',
 	                null,
 	                _react2.default.createElement(
-	                  "h1",
-	                  { className: "lightergray" },
-	                  "Education"
+	                  'h1',
+	                  { className: 'lightergray' },
+	                  'Education'
 	                )
 	              ),
 	              _react2.default.createElement(
-	                "li",
+	                'li',
 	                null,
 	                _react2.default.createElement(
-	                  "h1",
-	                  { className: "lightergray" },
-	                  "discussions"
+	                  'h1',
+	                  { className: 'lightergray' },
+	                  'discussions'
 	                )
 	              ),
 	              _react2.default.createElement(
-	                "li",
+	                'li',
 	                null,
 	                _react2.default.createElement(
-	                  "h1",
-	                  { className: "lightergray" },
-	                  "environment"
+	                  'h1',
+	                  { className: 'lightergray' },
+	                  'environment'
 	                )
 	              ),
 	              _react2.default.createElement(
-	                "li",
+	                'li',
 	                null,
 	                _react2.default.createElement(
-	                  "h1",
-	                  { className: "lightergray" },
-	                  "contributing"
+	                  'h1',
+	                  { className: 'lightergray' },
+	                  'contributing'
 	                )
 	              )
 	            )
@@ -29498,21 +29500,21 @@
 	        )
 	      ),
 	      _react2.default.createElement(
-	        "div",
-	        { className: "container" },
+	        'div',
+	        { className: 'container' },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "row" },
+	          'div',
+	          { className: 'row' },
 	          _react2.default.createElement(
-	            "div",
-	            { className: "col-lg-12" },
+	            'div',
+	            { className: 'col-lg-12' },
 	            _react2.default.createElement(
-	              "p",
-	              null,
+	              'button',
+	              { className: 'btn' },
 	              _react2.default.createElement(
-	                "a",
-	                { className: "btn btn-primary btn-lg" },
-	                "Get Started »"
+	                _reactRouter.Link,
+	                { to: 'preferences' },
+	                'Get Started »'
 	              )
 	            )
 	          )
@@ -29520,87 +29522,87 @@
 	      )
 	    ),
 	    _react2.default.createElement(
-	      "div",
-	      { className: "container" },
+	      'div',
+	      { className: 'container' },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "row", id: "homeDetails" },
+	        'div',
+	        { className: 'row', id: 'homeDetails' },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "col-lg-12" },
+	          'div',
+	          { className: 'col-lg-12' },
 	          _react2.default.createElement(
-	            "p",
+	            'p',
 	            null,
-	            "Laws and plans are being created and changed all the time without the people of the nation even being aware."
+	            'Laws and plans are being created and changed all the time without the people of the nation even being aware.'
 	          ),
 	          _react2.default.createElement(
-	            "p",
+	            'p',
 	            null,
-	            "There should be a way to be notified when something close to your heart is about to be decided. That is where our App comes in. Put in your topics of interest and when an issue around that topic comes up then you will be informed and then there is the opportunity to engage with government to mold the country and area that you live in."
+	            'There should be a way to be notified when something close to your heart is about to be decided. That is where our App comes in. Put in your topics of interest and when an issue around that topic comes up then you will be informed and then there is the opportunity to engage with government to mold the country and area that you live in.'
 	          ),
 	          _react2.default.createElement(
-	            "footer",
+	            'footer',
 	            null,
 	            _react2.default.createElement(
-	              "div",
-	              { className: "row" },
+	              'div',
+	              { className: 'row' },
 	              _react2.default.createElement(
-	                "div",
-	                { className: "col-lg-12" },
+	                'div',
+	                { className: 'col-lg-12' },
 	                _react2.default.createElement(
-	                  "ul",
-	                  { className: "list-unstyled" },
+	                  'ul',
+	                  { className: 'list-unstyled' },
 	                  _react2.default.createElement(
-	                    "li",
-	                    { className: "pull-right" },
+	                    'li',
+	                    { className: 'pull-right' },
 	                    _react2.default.createElement(
-	                      "a",
-	                      { href: "#top" },
-	                      "Back to top"
+	                      'a',
+	                      { href: '#top' },
+	                      'Back to top'
 	                    )
 	                  )
 	                ),
 	                _react2.default.createElement(
-	                  "p",
+	                  'p',
 	                  null,
 	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "/", rel: "nofollow" },
-	                    "View the repo"
+	                    'a',
+	                    { href: '/', rel: 'nofollow' },
+	                    'View the repo'
 	                  ),
-	                  " on GitHub"
+	                  ' on GitHub'
 	                ),
 	                _react2.default.createElement(
-	                  "p",
+	                  'p',
 	                  null,
 	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "https://github.com/careabout/careabout", rel: "nofollow" },
-	                    "Bootstrap"
+	                    'a',
+	                    { href: 'https://github.com/careabout/careabout', rel: 'nofollow' },
+	                    'Bootstrap'
 	                  ),
-	                  " Theme by ",
+	                  ' Theme by ',
 	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "http://thomaspark.co/", rel: "nofollow" },
-	                    "Thomas Park"
+	                    'a',
+	                    { href: 'http://thomaspark.co/', rel: 'nofollow' },
+	                    'Thomas Park'
 	                  )
 	                ),
 	                _react2.default.createElement(
-	                  "p",
+	                  'p',
 	                  null,
-	                  "Icons from ",
+	                  'Icons from ',
 	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "http://fortawesome.github.io/Font-Awesome/", rel: "nofollow" },
-	                    "Font Awesome"
+	                    'a',
+	                    { href: 'http://fortawesome.github.io/Font-Awesome/', rel: 'nofollow' },
+	                    'Font Awesome'
 	                  ),
-	                  ". Web fonts from ",
+	                  '. Web fonts from ',
 	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "http://www.google.com/webfonts", rel: "nofollow" },
-	                    "Google"
+	                    'a',
+	                    { href: 'http://www.google.com/webfonts', rel: 'nofollow' },
+	                    'Google'
 	                  ),
-	                  "."
+	                  '.'
 	                )
 	              )
 	            )
@@ -31642,30 +31644,6 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'form-group' },
-	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              'Topics'
-	            ),
-	            props.topics.map(function (topic, i) {
-	              return _react2.default.createElement(_Preference2.default, { key: i, topic: topic });
-	            })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'form-group' },
-	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              'Locations'
-	            ),
-	            props.locations.map(function (location, i) {
-	              return _react2.default.createElement(_Preference2.default, { key: i, topic: location });
-	            })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'form-group' },
 	            _react2.default.createElement('br', null),
 	            props.isSubscribed ? _react2.default.createElement(
 	              'button',
@@ -31686,6 +31664,42 @@
 	            ),
 	            ' '
 	          )
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'row' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-lg-6' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'form-group' },
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Topics'
+	          ),
+	          props.topics.map(function (topic, i) {
+	            return _react2.default.createElement(_Preference2.default, { key: i, topic: topic });
+	          })
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-lg-6' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'form-group' },
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Locations'
+	          ),
+	          props.locations.map(function (location, i) {
+	            return _react2.default.createElement(_Preference2.default, { key: i, topic: location });
+	          })
 	        )
 	      )
 	    )
