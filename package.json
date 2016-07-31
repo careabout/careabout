@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
+    "postinstall": "node workers/retrieveConsultations.js",
     "start": "node server/server.js",
     "server": "node-inspector --web-port 8888 & nodemon --debug server/server",
     "test:workers": "tape 'tests/worker/**/*.test.js' | tap-spec",
