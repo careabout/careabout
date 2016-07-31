@@ -14,15 +14,18 @@ export default (props) => (
       <div className="form-horizontal">
         <fieldset>
           <div className="form-group">
-            <br />
+            <p>
+              In order to receive browser notifications, please subscribe and allow notifications by clicking the button below:
+            </p>
             {props.isSubscribed ? <button className='btn btn-default' onClick={props.unsubscribe}>Unsubscribe</button> : <button className='btn btn-default' onClick={props.subscribe}>Subscribe</button>}
-
-            {' '}
+            <br />
+            <br />
+            <p>
+              After subscribing, please select the relevant topics and locations that you care about to receive those notificaitons, and then click save below:
+            </p>
             <button className='btn btn-primary' onClick={() => (props.savePreferences(props.preferences, props.id, props.hasPreferences))}>Save Preferences</button>{' '}
           </div>
-
         </fieldset>
-
       </div>
     </div>
     <div className="row">
@@ -47,10 +50,5 @@ export default (props) => (
         </div>
       </div>
     </div>
-
-
-
-
-
   </div>
 )
