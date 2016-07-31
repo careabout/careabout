@@ -12,7 +12,7 @@ export default (props) => {
           <div className="navbar-collapse collapse" id="navbar-main">
             <ul className="nav navbar-nav navbar-right">
               <li><Link to="decisions">Decisions</Link></li>
-              <li><Link to="preferences">Preferences</Link></li>
+              <li><Link to="preferences">Subscribe / Preferences</Link></li>
             </ul>
           </div>
         </div>
