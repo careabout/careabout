@@ -34,7 +34,7 @@ export default (props) => (
             {props.isSubscribed ? <button className='btn btn-default' onClick={props.unsubscribe}>Unsubscribe</button> : <button className='btn btn-default' onClick={props.subscribe}>Subscribe</button>}
 
             {' '}
-            <button className='btn btn-primary' onClick={props.savePreferences}>Save Changes</button>{' '}
+            <button className='btn btn-primary' onClick={() => (props.savePreferences(props.preferences, props.id, props.hasPreferences))}>Save Changes</button>{' '}
           </div>
         </fieldset>
 

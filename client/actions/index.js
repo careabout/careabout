@@ -11,6 +11,8 @@ export const UPDATE_REGISTRATION_STATUS = 'UPDATE_REGISTRATION_STATUS'
 export const UPDATE_USER_ID = 'UPDATE_USER_ID'
 export const UPDATE_USER_PREFERENCES = 'UPDATE_USER_PREFERENCES'
 
+var preferencesUrl = 'http://careabout-notifications.herokuapp.com/v1/subscriptions/'
+
 export const getDecisions = () => {
   return dispatch => {
     request
@@ -24,26 +26,24 @@ export const getDecisions = () => {
 
 export const getPreferences = (id) => {
   return dispatch => {
-    var preferencesUrl = 'http://careabout-notifications.herokuapp.com/v1/subscriptions/0052924d-a741-4439-8e3f-99241f7be6fe'
     request
-      .get(preferencesUrl)
+      .get(preferencesUrl + id)
       .end((err, res) => {
-        dispatch(updateUserPreferences(res.body))
+        var hasPreferences = false
+        var result = []
+        if (res.body) {
+          result = res.body.topics || []
+          hasPreferences = true
+        }
+        dispatch(populatePreferences(hasPreferences, result))
       })
   }
 }
 
-export const updateUserPreferences = (preferences) => {
-  console.log('prefences', preferences)
-  return {
-    type: UPDATE_USER_PREFERENCES,
-    preferences: preferences
-  }
-}
-
-export const populatePreferences = (preferences) => {
+export const populatePreferences = (hasPreferences, preferences) => {
   return {
     type: POPULATE_PREFERENCES,
+    hasPreferences: hasPreferences,
     preferences: preferences
   }
 }
@@ -65,9 +65,24 @@ export const updatePreference = (preference) => {
   }
 }
 
-export const savePreferences = () => {
+export const savePreferences = (preferences, id, hasPreferences) => {
   return dispatch => {
-    console.log('NEED TO ADD API TO SAVE PREFERENCES')
+    if (hasPreferences) {
+      request
+        .put(preferencesUrl + id)
+        .send({ "topics": preferences })
+        .end((err, res) => {
+          console.log('put')
+        })
+    } else {
+      request
+        .post(preferencesUrl + id)
+        .send({ "topics": preferences })
+        .end((err, res) => {
+          console.log('posted')
+        })
+    }
+
   }
 }
 
