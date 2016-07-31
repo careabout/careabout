@@ -29651,7 +29651,7 @@
 	              _react2.default.createElement(
 	                _reactRouter.Link,
 	                { to: 'decisions' },
-	                'Decisions'
+	                'Browse Decisions'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -29660,7 +29660,7 @@
 	              _react2.default.createElement(
 	                _reactRouter.Link,
 	                { to: 'preferences' },
-	                'Subscribe / Preferences'
+	                'Receive Notifications'
 	              )
 	            )
 	          )
@@ -31629,7 +31629,11 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'form-group' },
-	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'In order to receive browser notifications, please subscribe and allow notifications by clicking the button below:'
+	            ),
 	            props.isSubscribed ? _react2.default.createElement(
 	              'button',
 	              { className: 'btn btn-default', onClick: props.unsubscribe },
@@ -31639,7 +31643,13 @@
 	              { className: 'btn btn-default', onClick: props.subscribe },
 	              'Subscribe'
 	            ),
-	            ' ',
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'After subscribing, please select the relevant topics and locations that you care about to receive those notificaitons, and then click save below:'
+	            ),
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'btn btn-primary', onClick: function onClick() {
