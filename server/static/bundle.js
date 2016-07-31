@@ -29824,11 +29824,7 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'modal-body' },
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          props.description
-	        )
+	        _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: props.description } })
 	      )
 	    )
 	  );
@@ -31918,11 +31914,7 @@
 	          _react2.default.createElement(
 	            "div",
 	            { className: "bs-component" },
-	            _react2.default.createElement(
-	              "p",
-	              null,
-	              props.decision.description
-	            )
+	            _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: props.decision.description } })
 	          ),
 	          _react2.default.createElement(
 	            "p",
