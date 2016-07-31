@@ -29869,7 +29869,7 @@
 	
 	var getDecisions = exports.getDecisions = function getDecisions() {
 	  return function (dispatch) {
-	    _superagent2.default.get('/decisions').end(function (err, res) {
+	    _superagent2.default.get('/v1/decisions').end(function (err, res) {
 	      var payload = JSON.parse(res.text);
 	      dispatch(populateDecisions(payload));
 	    });

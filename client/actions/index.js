@@ -16,7 +16,7 @@ var preferencesUrl = 'http://careabout-notifications.herokuapp.com/v1/subscripti
 export const getDecisions = () => {
   return dispatch => {
     request
-      .get('/decisions')
+      .get('/v1/decisions')
       .end((err, res) => {
         var payload = JSON.parse(res.text)
         dispatch(populateDecisions(payload))
