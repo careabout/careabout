@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 export default (props) => {
   return (
@@ -37,9 +38,9 @@ export default (props) => {
                       <div className="container">
                         <div className="row">
                           <div className="col-lg-12">
-                            <p><a className="btn btn-primary btn-lg">Get Started &raquo;</a></p>
+                            <button className="btn"><Link to="preferences">Get Started &raquo;</Link></button>
                           </div>
-                        </div>                      
+                        </div>
                       </div>
 
                     </div>
