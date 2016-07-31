@@ -9,7 +9,21 @@ router.get('process-error', (req, res) => {
   res.status(400).send('Could not process consultations.')
 })
 
-router.get('/', function (req, res) {
+router.get('/:id', (req, res) => {
+  decisionStore.getDecision(req.params.id)
+    .then(decision => {
+      if (decision.length > 0) {
+        res.json(decision[0])
+        return
+      }
+      res.status(404).send('Could not find that decision.')
+    })
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR')
+    })
+})
+
+router.get('/', (req, res) => {
   decisionStore.buildViewModel()
     .then(vm => {
       res.json({
