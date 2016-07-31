@@ -31826,7 +31826,7 @@
 	var mapStateToProps = function mapStateToProps(state, ownProps) {
 	  return {
 	    decision: state.decisions.filter(function (decision) {
-	      return Number(ownProps.params.id) === decision._id;
+	      return ownProps.params.id === decision._id;
 	    })[0]
 	  };
 	};
