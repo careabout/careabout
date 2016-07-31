@@ -31881,7 +31881,7 @@
 /* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -31894,16 +31894,101 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (props) {
-	  console.log(props);
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
+	  if (props.decision) {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "container" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col-lg-12" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "page-header" },
+	            props.decision.topic.map(function (t, i) {
+	              return _react2.default.createElement(
+	                "p",
+	                { key: i },
+	                t,
+	                ", ",
+	                props.decision.location[i]
+	              );
+	            }),
+	            _react2.default.createElement(
+	              "h1",
+	              { id: "typography" },
+	              props.decision.title
+	            ),
+	            _react2.default.createElement(
+	              "p",
+	              { className: "text-primary" },
+	              props.decision.start,
+	              " - ",
+	              props.decision.end
+	            ),
+	            _react2.default.createElement(
+	              "a",
+	              { href: props.decision.url, className: "btn btn-primary" },
+	              "Open"
+	            ),
+	            _react2.default.createElement(
+	              "div",
+	              { id: "socialIcons" },
+	              _react2.default.createElement(
+	                "a",
+	                { href: "#" },
+	                _react2.default.createElement("img", { src: "facebook.png" })
+	              ),
+	              _react2.default.createElement(
+	                "a",
+	                { href: "#" },
+	                _react2.default.createElement("img", { src: "twitter.png" })
+	              )
+	            )
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        props.decision.organisation
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col-lg-6" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "bs-component" },
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              props.decision.description
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            { className: "bs-component" },
+	            _react2.default.createElement(
+	              "a",
+	              { href: props.decision.url, className: "btn btn-primary btn-lg btn-block" },
+	              "View More Info"
+	            )
+	          )
+	        )
+	      )
+	    );
+	  } else {
+	    return _react2.default.createElement(
+	      "div",
 	      null,
-	      'Decision Details'
-	    )
-	  );
+	      "Loading..."
+	    );
+	  }
 	};
 
 /***/ },
