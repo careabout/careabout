@@ -4,15 +4,16 @@ module.exports = {
   process: process,
   processAll: processAll,
   removeQuery: removeQuery,
+  writeOrganisation: writeOrganisation,
   writeSourceId: writeSourceId
 }
 
 function process (req, res, next) {
   const result = processAll(req.body.consultations)
   if (!result) {
-    res.send(400, 'Could not process consultations. Possibly bad data...')
-    res.end()
-    return 
+    return next('process-error')
+    //res.send(400, 'Could not process consultations. Possibly bad data...')
+    //return 
   }
   req.body = result
   next()
@@ -27,6 +28,7 @@ function processAll (consultations) {
 
 function createDecision (consultation) {
   let decision = addLocations(consultation)
+  decision = writeOrganisation(decision)
   return writeSourceId(decision)
 }
 
@@ -51,6 +53,12 @@ function addLocations (decision) {
     }
     clone.topics.push(topic)
   })
+  return clone
+}
+
+function writeOrganisation (consultation) {
+  const clone = Object.assign({}, consultation)
+  clone.organisation = consultation.organisation[0].name
   return clone
 }
 

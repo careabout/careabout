@@ -8,8 +8,8 @@
     "watch": "webpack --watch",
     "start": "node server/server.js",
     "server": "node-inspector --web-port 8888 & nodemon --debug server/server",
-    "test:workers": "tape tests/worker/**/*.test.js | tap-spec",
-    "test:server": "tape tests/server/processors/**/*.test.js | tap-spec"
+    "test:workers": "tape 'tests/worker/**/*.test.js' | tap-spec",
+    "test:server": "tape 'tests/server/**/*.test.js' | tap-spec"
   },
   "babel": {
     "presets": [
@@ -62,6 +62,7 @@
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "mongodb": "^2.2.5",
+    "mongoose": "^4.5.7",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "superagent": "^2.1.0"
