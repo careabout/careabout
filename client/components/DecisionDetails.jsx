@@ -2,6 +2,8 @@ import React from 'react'
 
 export default (props) => {
   if (props.decision) {
+    var startDate = new Date(props.decision.start)
+    var endDate = new Date(props.decision.end)
     return (
     <div className="container">
       <div className="row">
@@ -9,7 +11,7 @@ export default (props) => {
               <div className="page-header">
                 {props.decision.topics.map((t, i) => <p key={i}>{t}, {props.decision.locations[i]}</p>)}
                   <h1 id="typography">{props.decision.title}</h1>
-                <p className="text-primary">{props.decision.start} - {props.decision.end}</p>
+                <p className="text-primary">{startDate.toLocaleDateString("en-NZ")} - {endDate.toLocaleDateString("en-NZ")}</p>
                 <a href={props.decision.url} className="btn btn-primary">Open</a>
                   <div id="socialIcons">
                     <a href="#"><img src="facebook.png" /></a>

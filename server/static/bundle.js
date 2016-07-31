@@ -31837,6 +31837,8 @@
 	
 	exports.default = function (props) {
 	  if (props.decision) {
+	    var startDate = new Date(props.decision.start);
+	    var endDate = new Date(props.decision.end);
 	    return _react2.default.createElement(
 	      "div",
 	      { className: "container" },
@@ -31866,9 +31868,9 @@
 	            _react2.default.createElement(
 	              "p",
 	              { className: "text-primary" },
-	              props.decision.start,
+	              startDate.toLocaleDateString("en-NZ"),
 	              " - ",
-	              props.decision.end
+	              endDate.toLocaleDateString("en-NZ")
 	            ),
 	            _react2.default.createElement(
 	              "a",
