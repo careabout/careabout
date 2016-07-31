@@ -29792,11 +29792,6 @@
 	        'div',
 	        { className: 'modal-header' },
 	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
-	          '×'
-	        ),
-	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: 'decision/' + props._id },
 	          _react2.default.createElement(
