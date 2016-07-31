@@ -10,7 +10,8 @@ const decisionSchema = {
   'end': Date,
   'status': String,
   'topics': [String],
-  'locations': [String]
+  'locations': [String],
+  'processed': { type: Boolean, default: false }
 }
 
 module.exports = mongoose.model('Decision', decisionSchema)

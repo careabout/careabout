@@ -11,9 +11,8 @@ module.exports = {
 function process (req, res, next) {
   const result = processAll(req.body.consultations)
   if (!result) {
-    return next('process-error')
-    //res.send(400, 'Could not process consultations. Possibly bad data...')
-    //return 
+    res.status(400).send('Could not process consultations. Possibly bad data...')
+    return 
   }
   req.body = result
   next()
