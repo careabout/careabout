@@ -11,7 +11,7 @@ export const UPDATE_REGISTRATION_STATUS = 'UPDATE_REGISTRATION_STATUS'
 export const UPDATE_USER_ID = 'UPDATE_USER_ID'
 export const UPDATE_USER_PREFERENCES = 'UPDATE_USER_PREFERENCES'
 
-var preferencesUrl = 'http://careabout-notifications.herokuapp.com/v1/subscriptions/'
+var preferencesUrl = 'https://careabout-notifications.herokuapp.com/v1/subscriptions/'
 
 export const getDecisions = () => {
   return dispatch => {
