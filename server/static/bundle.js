@@ -29733,6 +29733,8 @@
 	var UPDATE_USER_ID = exports.UPDATE_USER_ID = 'UPDATE_USER_ID';
 	var UPDATE_USER_PREFERENCES = exports.UPDATE_USER_PREFERENCES = 'UPDATE_USER_PREFERENCES';
 	
+	var preferencesUrl = 'http://careabout-notifications.herokuapp.com/v1/subscriptions/';
+	
 	var getDecisions = exports.getDecisions = function getDecisions() {
 	  return function (dispatch) {
 	    _superagent2.default.get('/decisions').end(function (err, res) {
@@ -29744,17 +29746,22 @@
 	
 	var getPreferences = exports.getPreferences = function getPreferences(id) {
 	  return function (dispatch) {
-	    var preferencesUrl = 'http://careabout-notifications.herokuapp.com/v1/subscriptions/0052924d-a741-4439-8e3f-99241f7be6fe';
-	    _superagent2.default.get(preferencesUrl).end(function (err, res) {
-	      var result = ["Fisheries"];
-	      dispatch(populatePreferences(result));
+	    _superagent2.default.get(preferencesUrl + id).end(function (err, res) {
+	      var hasPreferences = false;
+	      var result = [];
+	      if (res.body) {
+	        result = res.body.topics || [];
+	        hasPreferences = true;
+	      }
+	      dispatch(populatePreferences(hasPreferences, result));
 	    });
 	  };
 	};
 	
-	var populatePreferences = exports.populatePreferences = function populatePreferences(preferences) {
+	var populatePreferences = exports.populatePreferences = function populatePreferences(hasPreferences, preferences) {
 	  return {
 	    type: POPULATE_PREFERENCES,
+	    hasPreferences: hasPreferences,
 	    preferences: preferences
 	  };
 	};
@@ -29776,9 +29783,17 @@
 	  };
 	};
 	
-	var savePreferences = exports.savePreferences = function savePreferences() {
+	var savePreferences = exports.savePreferences = function savePreferences(preferences, id, hasPreferences) {
 	  return function (dispatch) {
-	    console.log('NEED TO ADD API TO SAVE PREFERENCES');
+	    if (hasPreferences) {
+	      _superagent2.default.put(preferencesUrl + id).send({ "topics": preferences }).end(function (err, res) {
+	        console.log('put');
+	      });
+	    } else {
+	      _superagent2.default.post(preferencesUrl + id).send({ "topics": preferences }).end(function (err, res) {
+	        console.log('posted');
+	      });
+	    }
 	  };
 	};
 	
@@ -31616,7 +31631,9 @@
 	            ' ',
 	            _react2.default.createElement(
 	              'button',
-	              { className: 'btn btn-primary', onClick: props.savePreferences },
+	              { className: 'btn btn-primary', onClick: function onClick() {
+	                  return props.savePreferences(props.preferences, props.id, props.hasPreferences);
+	                } },
 	              'Save Changes'
 	            ),
 	            ' '
@@ -31772,7 +31789,9 @@
 	    topics: state.topics,
 	    locations: state.locations,
 	    preferences: state.preferences,
-	    isSubscribed: state.notifications.isSubscribed
+	    isSubscribed: state.notifications.isSubscribed,
+	    id: state.notifications.id,
+	    hasPreferences: state.notifications.hasPreferences
 	  };
 	};
 	
@@ -31781,8 +31800,8 @@
 	    updatePreference: function updatePreference(preference) {
 	      dispatch((0, _actions.updatePreference)(preference));
 	    },
-	    savePreferences: function savePreferences() {
-	      dispatch((0, _actions.savePreferences)());
+	    savePreferences: function savePreferences(preferences, id, hasPreferences) {
+	      dispatch((0, _actions.savePreferences)(preferences, id, hasPreferences));
 	    },
 	    subscribe: function subscribe() {
 	      dispatch((0, _actions.subscribe)());
@@ -32007,7 +32026,8 @@
 	
 	var initialState = {
 	  isSubscribed: false,
-	  id: null
+	  id: null,
+	  hasPreferences: false
 	};
 	
 	exports.default = function () {
@@ -32019,6 +32039,8 @@
 	      return Object.assign({}, state, { isSubscribed: action.enabled });
 	    case _actions.UPDATE_USER_ID:
 	      return Object.assign({}, state, { id: action.id });
+	    case _actions.POPULATE_PREFERENCES:
+	      return Object.assign({}, state, { hasPreferences: action.hasPreferences });
 	    default:
 	      return state;
 	  }

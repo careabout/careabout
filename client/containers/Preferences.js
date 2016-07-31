@@ -7,7 +7,9 @@ const mapStateToProps = (state) => {
     topics: state.topics,
     locations: state.locations,
     preferences: state.preferences,
-    isSubscribed: state.notifications.isSubscribed
+    isSubscribed: state.notifications.isSubscribed,
+    id: state.notifications.id,
+    hasPreferences: state.notifications.hasPreferences
   }
 }
 
@@ -16,8 +18,8 @@ const mapDispatchToProps = (dispatch) => {
     updatePreference: (preference) => {
       dispatch(updatePreference(preference))
     },
-    savePreferences: () => {
-      dispatch(savePreferences())
+    savePreferences: (preferences, id, hasPreferences) => {
+      dispatch(savePreferences(preferences, id, hasPreferences))
     },
     subscribe: () => {
       dispatch(subscribe())
@@ -27,6 +29,5 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Preferences)
