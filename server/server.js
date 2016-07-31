@@ -2,7 +2,6 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var path = require('path')
 var mongoose = require('mongoose')
-require('dotenv').config()
 
 var index = require('./routes/index')
 var decisions = require('./routes/decisions')
@@ -14,7 +13,7 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'static')))
 
 app.use('/', index)
-app.use('/decisions', decisions)
+app.use('/v1/decisions', decisions)
 
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.Promise = global.Promise

@@ -2,7 +2,7 @@
   "name": "careabout",
   "version": "1.0.0",
   "description": "improving effective engagement into the political process",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
@@ -10,6 +10,9 @@
     "server": "node-inspector --web-port 8888 & nodemon --debug server/server",
     "test:workers": "tape 'tests/worker/**/*.test.js' | tap-spec",
     "test:server": "tape 'tests/server/**/*.test.js' | tap-spec"
+  },
+  "engines": {
+    "node": "6.3.0"
   },
   "babel": {
     "presets": [
