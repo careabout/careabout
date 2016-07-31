@@ -29410,89 +29410,91 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
 	exports.default = function (props) {
 	  return _react2.default.createElement(
 	    'div',
 	    null,
 	    _react2.default.createElement(
 	      'div',
-	      _defineProperty({ className: 'jumbotron' }, 'className', 'tickerParent'),
+	      { className: 'jumbotron jumbotron-fluid' },
 	      _react2.default.createElement(
 	        'div',
-	        { id: 'ticker', className: 'row' },
+	        { className: 'tickerParent' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'container' },
+	          { id: 'ticker', className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { id: 'text' },
+	            { className: 'container' },
 	            _react2.default.createElement(
-	              'h1',
-	              { className: 'gray' },
-	              'Care about'
-	            )
-	          ),
-	          _react2.default.createElement('div', { id: 'first' }),
-	          _react2.default.createElement(
-	            'div',
-	            { id: 'second' },
+	              'div',
+	              { id: 'text' },
+	              _react2.default.createElement(
+	                'h1',
+	                { className: 'gray' },
+	                'Care about'
+	              )
+	            ),
+	            _react2.default.createElement('div', { id: 'first' }),
 	            _react2.default.createElement(
-	              'ul',
-	              null,
+	              'div',
+	              { id: 'second' },
 	              _react2.default.createElement(
-	                'li',
+	                'ul',
 	                null,
 	                _react2.default.createElement(
-	                  'h1',
-	                  { className: 'lightergray' },
-	                  'New Zealand'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'h1',
+	                    { className: 'lightergray' },
+	                    'New Zealand'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  'h1',
-	                  { className: 'lightergray' },
-	                  'buildings'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'h1',
+	                    { className: 'lightergray' },
+	                    'buildings'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  'h1',
-	                  { className: 'lightergray' },
-	                  'Education'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'h1',
+	                    { className: 'lightergray' },
+	                    'Education'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  'h1',
-	                  { className: 'lightergray' },
-	                  'discussions'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'h1',
+	                    { className: 'lightergray' },
+	                    'discussions'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  'h1',
-	                  { className: 'lightergray' },
-	                  'environment'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'h1',
+	                    { className: 'lightergray' },
+	                    'environment'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  'h1',
-	                  { className: 'lightergray' },
-	                  'contributing'
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    'h1',
+	                    { className: 'lightergray' },
+	                    'contributing'
+	                  )
 	                )
 	              )
 	            )
@@ -29563,21 +29565,21 @@
 	                    { href: 'http://getbootstrap.com/', rel: 'nofollow' },
 	                    'Bootstrap'
 	                  ),
-	                  ' Theme by ',
+	                  ' Theme by',
 	                  _react2.default.createElement(
 	                    'a',
 	                    { href: 'http://thomaspark.co/', rel: 'nofollow' },
-	                    'Thomas Park'
+	                    ' Thomas Park'
 	                  )
 	                ),
 	                _react2.default.createElement(
 	                  'p',
 	                  null,
-	                  'Icons from ',
+	                  'Icons from',
 	                  _react2.default.createElement(
 	                    'a',
 	                    { href: 'http://fortawesome.github.io/Font-Awesome/', rel: 'nofollow' },
-	                    'Font Awesome'
+	                    ' Font Awesome'
 	                  ),
 	                  '. Web fonts from ',
 	                  _react2.default.createElement(
